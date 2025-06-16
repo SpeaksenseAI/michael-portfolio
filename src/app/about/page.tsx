@@ -113,7 +113,7 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading className={`${styles.textAlign} gradient-text text-center`} variant="display-strong-xl">
               <span className="gradient-text">{person.name}</span>
             </Heading>
             <Text
