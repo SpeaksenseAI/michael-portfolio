@@ -19,7 +19,7 @@ const resources = {
   path: "/resources",
   label: "Resources",
   title: "UX Resources & Tools",
-  description: `Curated tools, resources, and insights from ${person.name}'s UX design practice`,
+  description: `Curated tools, resources, and insights from ${person.name}&#39;s UX design practice`,
 };
 
 export default function Resources() {
@@ -134,7 +134,7 @@ export default function Resources() {
     {
       title: "Essential UX Reading",
       items: [
-        "Don't Make Me Think by Steve Krug",
+        "Don&#39;t Make Me Think by Steve Krug",
         "The Design of Everyday Things by Don Norman",
         "About Face by Alan Cooper"
       ]
@@ -179,7 +179,7 @@ export default function Resources() {
       
       <Text marginBottom="xl" variant="body-default-l" onBackground="neutral-weak">
         Tools, methodologies, and resources that power my UX design practice. 
-        From wireframing to user research, here's what I use to create meaningful user experiences.
+        From wireframing to user research, here&#39;s what I use to create meaningful user experiences.
       </Text>
 
       {/* Tools & Skills Section */}
