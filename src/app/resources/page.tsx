@@ -165,7 +165,7 @@ export default function Resources() {
         title={resources.title}
         description={resources.description}
         path={resources.path}
-        image={`/api/og/generate?title=${encodeURIComponent(resources.title)}`}
+        image="/images/og/resources.jpg"
         author={{
           name: person.name,
           url: `${baseURL}/resources`,

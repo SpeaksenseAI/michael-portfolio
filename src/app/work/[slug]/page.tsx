@@ -16,22 +16,22 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
-}): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  params: { slug: string };
+}) {
+  const post = getPosts(["src", "app", "work", "projects"]).find(
+    (post) => post.slug === params.slug
+  );
 
-  const posts = getPosts(["src", "app", "work", "projects"])
-  let post = posts.find((post) => post.slug === slugPath);
-
-  if (!post) return {};
+  if (!post) {
+    return {};
+  }
 
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
+    image: post.metadata.image || "/images/og/work.jpg",
+    path: `/work/${params.slug}`,
   });
 }
 
@@ -57,15 +57,13 @@ export default async function Project({
       <Schema
         as="blogPosting"
         baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
+        path={`/work/${params.slug}`}
         title={post.metadata.title}
         description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`}
+        image={post.metadata.image || "/images/og/work.jpg"}
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
+          url: `${baseURL}/work`,
           image: `${baseURL}${person.avatar}`,
         }}
       />

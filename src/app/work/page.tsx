@@ -7,24 +7,24 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
+    image: "/images/og/work.jpg",
     path: work.path,
   });
 }
 
 export default function Work() {
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" gap="xl">
       <Schema
         as="webPage"
         baseURL={baseURL}
-        path={work.path}
         title={work.title}
         description={work.description}
-        image={`/api/og/generate?title=${encodeURIComponent(work.title)}`}
+        path={work.path}
+        image="/images/og/work.jpg"
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
+          url: `${baseURL}/work`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
