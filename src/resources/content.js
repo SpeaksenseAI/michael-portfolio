@@ -95,24 +95,6 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "The Walt Disney Company",
-        timeframe: "Aug 2023 - Jan 2024",
-        role: "Hotel Concierge / Guest Relations",
-        achievements: [
-          <>
-            Used critical thinking and problem-solving skills to quickly develop tailored solutions 
-            for individual guest needs, applying user-centered design principles to address pain 
-            points and improve the overall guest experience.
-          </>,
-          <>
-            Built positive connections with over 400 guests daily through genuine, enthusiastic 
-            interactions, contributing to a 15% increase in positive feedback scores and demonstrating 
-            strong user empathy skills essential for UX design.
-          </>,
-        ],
-        images: [],
-      },
-      {
         company: "Caterpillar",
         timeframe: "2021",
         role: "Visual Designer / User Tester",
