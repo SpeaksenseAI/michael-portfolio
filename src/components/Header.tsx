@@ -14,7 +14,7 @@ type TimeDisplayProps = {
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-US" }) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -61,7 +61,6 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.location}</Flex>}
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -112,23 +111,23 @@ export const Header = () => {
                   />
                 </>
               )}
-              {routes["/blog"] && (
+              {/* {routes["/resources"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
-                    prefixIcon="book"
-                    href="/blog"
+                    prefixIcon="lightbulb"
+                    href="/resources"
                     label={blog.label}
-                    selected={pathname.startsWith("/blog")}
+                    selected={pathname.startsWith("/resources")}
                   />
                   <ToggleButton
                     className="s-flex-show"
-                    prefixIcon="book"
-                    href="/blog"
-                    selected={pathname.startsWith("/blog")}
+                    prefixIcon="lightbulb"
+                    href="/resources"
+                    selected={pathname.startsWith("/resources")}
                   />
                 </>
-              )}
+              )} */}
               {routes["/gallery"] && (
                 <>
                   <ToggleButton
@@ -163,7 +162,7 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            {/* <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex> */}
           </Flex>
         </Flex>
       </Flex>

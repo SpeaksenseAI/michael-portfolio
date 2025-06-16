@@ -1,16 +1,17 @@
 import { Logo } from "@once-ui-system/core";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Nick",
+  lastName: "Natalie",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "UX Designer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "NickJohnNatalie@gmail.com",
+  location: "America/Chicago", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English"], // optional: Leave the array empty if you don't want to display languages
+  linkedin: "https://www.linkedin.com/in/nick-natalie/",
 };
 
 const newsletter = {
@@ -28,19 +29,9 @@ const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
-  },
-  {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: person.linkedin,
   },
   {
     name: "Email",
@@ -55,16 +46,16 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Transforming complex challenges into intuitive experiences</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+    title: <>Featured project: <strong className="ml-4">Fleet Management Redesign</strong></>,
     href: "/work/building-once-ui-a-customizable-design-system",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon="/trademarks/wordmark-dark.svg" style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Nick, a UX Designer with a B.S. in User Experience Design from Bradley University. I specialize in user research, wireframing, and prototyping
+      <br /> to create meaningful experiences that solve real problems and drive business results.
     </>
   ),
 };
@@ -90,9 +81,12 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        User Experience Designer with a B.S. in User Experience Design and hands-on experience 
+        improving digital workflows through user research, wireframing, and prototyping. 
+        I've redesigned asset-tracking interfaces, optimized paperless billing systems, and 
+        created user-friendly platforms that serve hundreds of community members. Skilled in 
+        Figma, Sketch, accessibility compliance, and agile methodologies, I'm adept at 
+        translating stakeholder feedback into intuitive UI solutions.
       </>
     ),
   },
@@ -101,41 +95,79 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Caterpillar",
+        timeframe: "2021",
+        role: "Visual Designer / User Tester",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Led UI/UX design for fleet management software, conceptualizing and prototyping 
+            solutions using Figma, winning 1st place in a competitive contest.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Addressed critical user pain points related to asset tracking, designing an intuitive 
+            management page with calendar, spreadsheet, and advanced filtering views.
+          </>,
+          <>
+            Conducted usability testing sessions with end users, yielding a 15% increase in user 
+            satisfaction based on post-redesign surveys.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Jolt Foundation",
+        timeframe: "2021",
+        role: "User Experience Designer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Rebuilt and rebranded the organization's website, creating a user-friendly platform 
+            that provided resources to over 500 local community members.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Optimized the site's responsiveness across all devices, achieving 100% mobile 
+            compatibility and reducing page load times by 40%.
+          </>,
+          <>
+            Presented four unique design options using wireframes and prototypes, resulting in 
+            a 50% increase in website traffic post-launch.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Pekin Insurance",
+        timeframe: "2020 - 2021",
+        role: "User Experience Designer",
+        achievements: [
+          <>
+            Utilized design thinking methodologies to solve complex user interaction challenges, 
+            resulting in a more intuitive interface that reduced onboarding time by 30%.
+          </>,
+          <>
+            Conducted usability testing with internal stakeholders and end-users, improving 
+            user satisfaction by 20%.
+          </>,
+          <>
+            Collaborated with cross-functional teams to ensure seamless implementation of design 
+            elements, reducing time to deployment by 15%.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "The Walt Disney Company",
+        timeframe: "Aug 2023 - Jan 2024",
+        role: "Hotel Concierge / Guest Relations",
+        achievements: [
+          <>
+            Used critical thinking and problem-solving skills to quickly develop tailored solutions 
+            for individual guest needs, applying user-centered design principles to address pain 
+            points and improve the overall guest experience.
+          </>,
+          <>
+            Built positive connections with over 400 guests daily through genuine, enthusiastic 
+            interactions, contributing to a 15% increase in positive feedback scores and demonstrating 
+            strong user empathy skills essential for UX design.
           </>,
         ],
         images: [],
@@ -147,12 +179,8 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Bradley University",
+        description: <>Bachelor of Science in User Experience Design, graduated May 2022.</>,
       },
     ],
   },
@@ -161,48 +189,31 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "UX Design & Research",
+        description: <>Expert in user research, user flows, journey mapping, empathy mapping, persona creation, and usability testing with WCAG & ADA compliance.</>,
+        images: [],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Design Tools",
+        description: <>Proficient in Figma, Sketch, Adobe XD, Webflow, and Elementor for wireframing, prototyping, and responsive web design.</>,
+        images: [],
+      },
+      {
+        title: "Methodologies",
+        description: <>Experienced in Agile Product Development, Scrum, and Design Thinking processes for effective stakeholder communication and client relationship management.</>,
+        images: [],
       },
     ],
   },
 };
 
 const blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  path: "/resources",
+  label: "Resources",
+  title: "UX Resources & Tools",
+  description: `Curated tools, resources, and insights from ${person.name}'s UX design practice`,
+  // Create new resource pages by adding content to the resources section
+  // All resources will be listed on the /resources route
 };
 
 const work = {
@@ -217,50 +228,85 @@ const work = {
 const gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  title: `Project Gallery – ${person.name}`,
+  description: `A showcase of design work and project visuals by ${person.name}`,
+  // Images from work projects showcasing UX design process and outcomes
   images: [
+    // Randomized order of all project images - all 16x9 horizontal format
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
+      src: "/images/projects/jolt/img3.png",
+      alt: "Mobile responsive design mockups",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
+      src: "/images/projects/caterpillar/img1.png",
+      alt: "Caterpillar fleet management interface design",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
+      src: "/images/projects/pekin/img2.png",
+      alt: "Streamlined onboarding process design",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
+      src: "/images/projects/jolt/img5.png",
+      alt: "Final website design implementation",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: "/images/projects/caterpillar/img4.png",
+      alt: "User testing session results",
+      orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: "/images/projects/pekin/img1.png",
+      alt: "Insurance interface user flow diagram",
+      orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: "/images/projects/jolt/img1.png",
+      alt: "Jolt Foundation website homepage design",
+      orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: "/images/projects/caterpillar/img3.png",
+      alt: "Fleet management dashboard prototype",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/pekin/img5.png",
+      alt: "Final insurance interface design",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/jolt/img2.png",
+      alt: "Community resources page layout",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/caterpillar/img2.png",
+      alt: "Asset tracking calendar view wireframe",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/pekin/img4.png",
+      alt: "Usability testing feedback analysis",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/jolt/img4.png",
+      alt: "Website performance optimization results",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/caterpillar/img5.png",
+      alt: "Final fleet management interface",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/pekin/img3.png",
+      alt: "Insurance dashboard wireframes",
+      orientation: "horizontal",
     },
   ],
 };
