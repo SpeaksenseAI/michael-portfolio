@@ -1,94 +1,69 @@
-# **Magic Portfolio by Once UI**
+# **Nick Natalie - UX Designer Portfolio**
 
-View the [demo here](https://demo.magic-portfolio.com).
+A professional portfolio showcasing user experience design work and expertise.
 
-![Magic Portfolio](https://demo.magic-portfolio.com/images/og/home.jpg)
+![Portfolio Preview](https://nick-natalie-portfolio.vercel.app/images/og/home.png)
 
+## **About Nick**
 
-# **Getting started**
+User Experience Designer with a B.S. in User Experience Design from Bradley University. Passionate about transforming complex challenges into intuitive experiences through user research, wireframing, and prototyping.
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+**Contact:** [LinkedIn](https://www.linkedin.com/in/nick-natalie/) | NickJohnNatalie@gmail.com
 
-**1. Clone the repository**
-```
-git clone https://github.com/once-ui-system/magic-portfolio.git
-```
+## **Featured Work**
 
-**2. Install dependencies**
-```
-npm install
-```
+### **Caterpillar Fleet Management Software (2021)**
+Award-winning UI/UX redesign that won 1st place in internal competition
+- Led comprehensive user research and usability testing
+- Designed intuitive asset tracking interface with multiple view options
+- Achieved 15% increase in user satisfaction
 
-**3. Run dev server**
-```
-npm run dev
-```
+### **Jolt Foundation Website Rebuild (2021)**
+Complete website redesign serving 500+ community members
+- Improved mobile responsiveness to 100% compatibility
+- Reduced page load times by 40%
+- Increased website traffic by 50% post-launch
 
-**4. Edit config**
-```
-src/app/resources/config
-```
+### **Pekin Insurance Interface Redesign (2020-2021)**
+Streamlined complex insurance workflows using design thinking
+- Reduced user onboarding time by 30%
+- Improved user satisfaction by 20%
+- Enhanced cross-functional collaboration processes
 
-**5. Edit content**
-```
-src/app/resources/content
-```
+### **Disney Guest Experience (2023-2024)**
+Applied UX principles in guest relations role
+- Solved individual guest needs using user-centered design thinking
+- Built connections with 400+ guests daily
+- Contributed to 15% increase in positive feedback scores
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
-```
+## **Skills & Expertise**
 
-# **Documentation**
+**UX Design & Research**
+- User research, journey mapping, persona creation
+- Usability testing and accessibility compliance (WCAG & ADA)
+- Wireframing and prototyping
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+**Design Tools**
+- Figma, Sketch, Adobe XD
+- Webflow and Elementor
+- Responsive web design
 
-# **Features**
+**Methodologies**
+- Design Thinking and Agile/Scrum processes
+- Cross-functional collaboration
+- Stakeholder communication and client management
 
-## **Once UI**
-- All tokens, components & features of [Once UI](https://once-ui.com)
+## **Education**
 
-## **SEO**
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
+**Bradley University** - Bachelor of Science in User Experience Design (2022)
 
-## **Design**
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
+## **Portfolio Sections**
 
-## **Content**
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
+**Home** - Introduction and featured project showcase  
+**About** - Professional background, experience, and skills  
+**Work** - Detailed project case studies with process and outcomes  
+**Gallery** - Visual showcase of design work and project artifacts
 
-## **Localization**
-- A localized version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
+---
 
-# **Authors**
-
-Connect with us on Threads or LinkedIn.
-
-Lorant Toth: [Threads](https://www.threads.net/@lorant.one), [LinkedIn](https://www.linkedin.com/in/tothlorant/)  
-Zsofia Komaromi: [Threads](https://www.threads.net/@zsofia_kom), [LinkedIn](https://www.linkedin.com/in/zsofiakomaromi/)
-
-Localization added by [François Hernandez](https://github.com/francoishernandez)
-
-# **Get involved**
-
-- Join the [Design Engineers Club on Discord](https://discord.com/invite/5EyAQ4eNdS) and share your portfolio with us!
-- Report a [bug](https://github.com/once-ui-system/magic-portfolio/issues/new?labels=bug&template=bug_report.md).
-
-# **License**
-
-Distributed under the CC BY-NC 4.0 License.
-- Commercial usage is not allowed.
-- Attribution is required.
-- You can extend the license to commercial use by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
-
-See `LICENSE.txt` for more information.
-
-# **Deploy with Vercel**
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+*Built with Next.js and Once UI • Deployed on Vercel*
