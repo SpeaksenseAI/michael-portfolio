@@ -9,14 +9,14 @@ const person = {
   role: "UX Designer",
   avatar: "/images/avatar.jpg",
   email: "NickJohnNatalie@gmail.com",
-  location: "America/Chicago", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
   linkedin: "https://www.linkedin.com/in/nick-natalie/",
 };
 
 const newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the intersection of
@@ -54,7 +54,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Nick, a UX Designer with a B.S. in User Experience Design from Bradley University. I specialize in user research, wireframing, and prototyping
+      I&apos;m Nick, a UX Designer with a B.S. in User Experience Design from Bradley University. I specialize in user research, wireframing, and prototyping
       <br /> to create meaningful experiences that solve real problems and drive business results.
     </>
   ),
@@ -83,9 +83,9 @@ const about = {
       <>
         User Experience Designer with a B.S. in User Experience Design and hands-on experience 
         improving digital workflows through user research, wireframing, and prototyping. 
-        I've redesigned asset-tracking interfaces, optimized paperless billing systems, and 
+        I&apos;ve redesigned asset-tracking interfaces, optimized paperless billing systems, and 
         created user-friendly platforms that serve hundreds of community members. Skilled in 
-        Figma, Sketch, accessibility compliance, and agile methodologies, I'm adept at 
+        Figma, Sketch, accessibility compliance, and agile methodologies, I&apos;m adept at 
         translating stakeholder feedback into intuitive UI solutions.
       </>
     ),
@@ -94,6 +94,24 @@ const about = {
     display: true, // set to false to hide this section
     title: "Work Experience",
     experiences: [
+      {
+        company: "The Walt Disney Company",
+        timeframe: "Aug 2023 - Jan 2024",
+        role: "Hotel Concierge / Guest Relations",
+        achievements: [
+          <>
+            Used critical thinking and problem-solving skills to quickly develop tailored solutions 
+            for individual guest needs, applying user-centered design principles to address pain 
+            points and improve the overall guest experience.
+          </>,
+          <>
+            Built positive connections with over 400 guests daily through genuine, enthusiastic 
+            interactions, contributing to a 15% increase in positive feedback scores and demonstrating 
+            strong user empathy skills essential for UX design.
+          </>,
+        ],
+        images: [],
+      },
       {
         company: "Caterpillar",
         timeframe: "2021",
@@ -120,11 +138,11 @@ const about = {
         role: "User Experience Designer",
         achievements: [
           <>
-            Rebuilt and rebranded the organization's website, creating a user-friendly platform 
+            Rebuilt and rebranded the organization&apos;s website, creating a user-friendly platform 
             that provided resources to over 500 local community members.
           </>,
           <>
-            Optimized the site's responsiveness across all devices, achieving 100% mobile 
+            Optimized the site&apos;s responsiveness across all devices, achieving 100% mobile 
             compatibility and reducing page load times by 40%.
           </>,
           <>
