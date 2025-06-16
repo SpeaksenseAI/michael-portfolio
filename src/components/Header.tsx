@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -117,7 +117,7 @@ export const Header = () => {
                     className="s-flex-hide"
                     prefixIcon="lightbulb"
                     href="/resources"
-                    label={blog.label}
+                    label="Resources"
                     selected={pathname.startsWith("/resources")}
                   />
                   <ToggleButton

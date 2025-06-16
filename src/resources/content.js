@@ -207,21 +207,12 @@ const about = {
   },
 };
 
-const blog = {
-  path: "/resources",
-  label: "Resources",
-  title: "UX Resources & Tools",
-  description: `Curated tools, resources, and insights from ${person.name}'s UX design practice`,
-  // Create new resource pages by adding content to the resources section
-  // All resources will be listed on the /resources route
-};
-
 const work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
+  // Create new project pages by adding a new .mdx file to app/work/projects
   // All projects will be listed on the /home and /work routes
 };
 
@@ -311,4 +302,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, work, gallery };

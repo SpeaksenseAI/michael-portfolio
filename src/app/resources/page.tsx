@@ -13,7 +13,14 @@ import {
   Grid
 } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
-import { baseURL, blog, person, newsletter } from "@/resources";
+import { baseURL, person, newsletter } from "@/resources";
+
+const resources = {
+  path: "/resources",
+  label: "Resources",
+  title: "UX Resources & Tools",
+  description: `Curated tools, resources, and insights from ${person.name}'s UX design practice`,
+};
 
 export default function Resources() {
   const tools = [
@@ -123,7 +130,7 @@ export default function Resources() {
     }
   ];
 
-  const resources = [
+  const resourcesList = [
     {
       title: "Essential UX Reading",
       items: [
@@ -153,12 +160,12 @@ export default function Resources() {
   return (
     <Column maxWidth="l">
       <Schema
-        as="webpage"
+        as="webPage"
         baseURL={baseURL}
-        title={blog.title}
-        description={blog.description}
-        path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
+        title={resources.title}
+        description={resources.description}
+        path={resources.path}
+        image={`/api/og/generate?title=${encodeURIComponent(resources.title)}`}
         author={{
           name: person.name,
           url: `${baseURL}/resources`,
@@ -167,7 +174,7 @@ export default function Resources() {
       />
       
       <Heading marginBottom="l" variant="display-strong-s">
-        {blog.title}
+        {resources.title}
       </Heading>
       
       <Text marginBottom="xl" variant="body-default-l" onBackground="neutral-weak">
@@ -182,10 +189,10 @@ export default function Resources() {
             <Heading variant="heading-strong-l" marginBottom="m">
               {category.category}
             </Heading>
-            <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="m">
+            <Flex wrap gap="m" fillWidth>
               {category.items.map((tool, toolIndex) => (
-                <Card key={toolIndex} padding="l" fillWidth>
-                  <Flex alignItems="center" marginBottom="m">
+                <Card key={toolIndex} padding="l" style={{ flex: "1 1 300px", minWidth: "300px" }}>
+                  <Flex align="center" marginBottom="m">
                     <Icon name={tool.icon} size="m" />
                     <Column marginLeft="m" flex={1}>
                       <Text variant="heading-strong-m">{tool.name}</Text>
@@ -204,19 +211,19 @@ export default function Resources() {
                   </Flex>
                 </Card>
               ))}
-            </Grid>
+            </Flex>
           </Column>
         ))}
       </Column>
 
       {/* Resources Section */}
-      <Column fillWidth gap="l" marginTop="xxl">
+      <Column fillWidth gap="l" marginTop="xl">
         <Heading variant="heading-strong-l" marginBottom="m">
           Recommended Resources
         </Heading>
-        <Grid columns="repeat(auto-fit, minmax(250px, 1fr))" gap="m">
-          {resources.map((resource, index) => (
-            <Card key={index} padding="l" fillWidth>
+        <Flex wrap gap="m" fillWidth>
+          {resourcesList.map((resource, index) => (
+            <Card key={index} padding="l" style={{ flex: "1 1 250px", minWidth: "250px" }}>
               <Heading variant="heading-strong-m" marginBottom="m">
                 {resource.title}
               </Heading>
@@ -229,11 +236,11 @@ export default function Resources() {
               </Column>
             </Card>
           ))}
-        </Grid>
+        </Flex>
       </Column>
 
       {newsletter.display && (
-        <Column marginTop="xxl">
+        <Column marginTop="xl">
           <Mailchimp newsletter={newsletter} />
         </Column>
       )}
