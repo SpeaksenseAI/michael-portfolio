@@ -16,10 +16,11 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const post = getPosts(["src", "app", "work", "projects"]).find(
-    (post) => post.slug === params.slug
+    (post) => post.slug === slug
   );
 
   if (!post) {
@@ -31,14 +32,14 @@ export async function generateMetadata({
     description: post.metadata.summary,
     baseURL: baseURL,
     image: post.metadata.image || "/images/og/work.jpg",
-    path: `/work/${params.slug}`,
+    path: `/work/${slug}`,
   });
 }
 
 export default async function Project({
   params
-}: { params: { slug: string | string[] } }) {
-  const routeParams = params;
+}: { params: Promise<{ slug: string | string[] }> }) {
+  const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
   let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
@@ -57,7 +58,7 @@ export default async function Project({
       <Schema
         as="blogPosting"
         baseURL={baseURL}
-        path={`/work/${params.slug}`}
+        path={`/work/${slugPath}`}
         title={post.metadata.title}
         description={post.metadata.summary}
         image={post.metadata.image || "/images/og/work.jpg"}
