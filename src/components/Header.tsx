@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, work, gallery } from "@/resources";
@@ -61,6 +61,7 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
+          <Image src={person.logo} alt="Logo" width={40} height={40} />
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -111,23 +112,6 @@ export const Header = () => {
                   />
                 </>
               )}
-              {/* {routes["/resources"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="lightbulb"
-                    href="/resources"
-                    label="Resources"
-                    selected={pathname.startsWith("/resources")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="lightbulb"
-                    href="/resources"
-                    selected={pathname.startsWith("/resources")}
-                  />
-                </>
-              )} */}
               {routes["/gallery"] && (
                 <>
                   <ToggleButton

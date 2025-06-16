@@ -1,5 +1,3 @@
-import { Logo } from "@once-ui-system/core";
-
 const person = {
   firstName: "Nick",
   lastName: "Natalie",
@@ -12,6 +10,7 @@ const person = {
   location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
   linkedin: "https://www.linkedin.com/in/nick-natalie/",
+  logo: "/images/projects/logo.png",
 };
 
 const newsletter = {
