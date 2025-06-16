@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes, work } from "@/resources";
-import { Mailchimp } from "@/components";
+import { home, about, person, baseURL, routes, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
 export default function Home() {
@@ -33,7 +32,7 @@ export default function Home() {
           )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
+              <span className="gradient-text">{home.headline}</span>
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
@@ -70,7 +69,6 @@ export default function Home() {
         <Projects range={[1, 1]} />
       </RevealFx>
       <Projects range={[2]} />
-      {/* {newsletter.display && <Mailchimp newsletter={newsletter} />} */}
     </Column>
   );
 }

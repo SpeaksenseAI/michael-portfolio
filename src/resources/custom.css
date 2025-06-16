@@ -52,3 +52,55 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+/* Custom gradient styles for all headings */
+h1, h2, h3, h4, h5, h6,
+[data-tag="heading"],
+.variant-display-strong-xl,
+.variant-display-strong-l,
+.variant-display-strong-m,
+.variant-display-strong-s,
+.variant-heading-strong-xl,
+.variant-heading-strong-l,
+.variant-heading-strong-m,
+.variant-heading-strong-s,
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ef4444 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  line-height: 1.2 !important;
+}
+
+/* Specific styling for the gradient text span */
+.gradient-text {
+  display: inline !important;
+  width: auto !important;
+  background-attachment: local !important;
+  background-size: 100% 100% !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+/* Override flex container behavior that forces headings to expand */
+[data-tag="flex"] h1,
+[data-tag="flex"] h2,
+[data-tag="flex"] [data-tag="heading"] {
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  flex-basis: auto !important;
+}
+
+/* Target flex containers that contain headings */
+[data-tag="flex"]:has(h1),
+[data-tag="flex"]:has(h2),
+[data-tag="flex"]:has([data-tag="heading"]) {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}

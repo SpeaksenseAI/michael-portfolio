@@ -13,17 +13,6 @@ const person = {
   logo: "/images/projects/logo.png",
 };
 
-const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
-  description: (
-    <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
-    </>
-  ),
-};
-
 const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
@@ -301,4 +290,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, work, gallery };
+export { person, social, home, about, work, gallery };
