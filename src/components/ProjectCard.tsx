@@ -1,14 +1,17 @@
 "use client";
 
+import React from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import {
   AvatarGroup,
-  Carousel,
   Column,
   Flex,
   Heading,
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
@@ -30,15 +33,35 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      loop: true,
+      dragFree: false,
+    },
+    [
+      Autoplay({
+        delay: 2000, // 2 seconds - adjust this to make it faster or slower
+        stopOnInteraction: true,
+      })
+    ]
+  );
+
   return (
     <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+      <div className={styles.embla} ref={emblaRef}>
+        <div className={styles.emblaContainer}>
+          {images.map((image, index) => (
+            <div className={styles.emblaSlide} key={index}>
+              <img
+                src={image}
+                alt={title}
+                className={styles.emblaSlideImg}
+                sizes="(max-width: 960px) 100vw, 960px"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       <Flex
         mobileDirection="column"
         fillWidth

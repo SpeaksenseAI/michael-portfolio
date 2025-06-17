@@ -1,0 +1,21 @@
+.embla {
+  overflow: hidden;
+  border-radius: 0.75rem; /* Matches Once UI border radius */
+}
+
+.emblaContainer {
+  display: flex;
+}
+
+.emblaSlide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.emblaSlideImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9; /* Maintain consistent aspect ratio */
+}
