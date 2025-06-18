@@ -1,15 +1,15 @@
 const person = {
-  firstName: "Nick",
-  lastName: "Natalie",
+  firstName: "Michael",
+  lastName: "Baylard",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "UX Designer",
+  role: "Data Scientist",
   avatar: "/images/avatar.jpg",
-  email: "NickJohnNatalie@gmail.com",
+  email: "MichaelBaylard@gmail.com",
   location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
-  linkedin: "https://www.linkedin.com/in/nick-natalie/",
+  linkedin: "https://www.linkedin.com/in/michael-baylard/",
   logo: "/images/projects/logo.png",
 };
 
