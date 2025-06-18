@@ -1,16 +1,16 @@
 const person = {
-  firstName: "Nick",
-  lastName: "Natalie",
+  firstName: "Michael",
+  lastName: "Baylard",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "UX Designer",
+  role: "Data Scientist",
   avatar: "/images/avatar.jpg",
-  email: "NickJohnNatalie@gmail.com",
+  email: "baylardmichael@gmail.com",
   location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
-  linkedin: "https://www.linkedin.com/in/nick-natalie/",
-  logo: "/images/projects/logo.png",
+  linkedin: "https://www.linkedin.com/in/michaelbaylard",
+  // logo: "/images/projects/logo.png",
 };
 
 const social = [
@@ -26,6 +26,12 @@ const social = [
     icon: "email",
     link: `mailto:${person.email}`,
   },
+  {
+    name: "Resume",
+    icon: "document",
+    link: "/Michael Baylard - Resume.pdf",
+    target: "_blank",
+  },
 ];
 
 const home = {
@@ -34,16 +40,16 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Transforming complex challenges into intuitive experiences</>,
+  headline: <>Transforming data into actionable insights and scalable solutions</>,
   featured: {
     display: true,
-    title: <>Featured project: <strong className="ml-4">Fleet Management Redesign</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>Featured project: <strong className="ml-4">FurrowVision Computer Vision System</strong></>,
+    href: "/work/furrowvision",
   },
   subline: (
     <>
-      I&apos;m Nick, a UX Designer with a B.S. in User Experience Design from Bradley University. I specialize in user research, wireframing, and prototyping
-      <br /> to create meaningful experiences that solve real problems and drive business results.
+      I&apos;m Michael, a Data Scientist with a B.S. in Computer Science from Bradley University. I specialize in machine learning, data engineering, and analytics
+      <br /> to create scalable solutions that drive business results and optimize complex systems.
     </>
   ),
 };
@@ -52,7 +58,7 @@ const about = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} from Chicago, IL`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -69,12 +75,10 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        User Experience Designer with a B.S. in User Experience Design and hands-on experience 
-        improving digital workflows through user research, wireframing, and prototyping. 
-        I&apos;ve redesigned asset-tracking interfaces, optimized paperless billing systems, and 
-        created user-friendly platforms that serve hundreds of community members. Skilled in 
-        Figma, Sketch, accessibility compliance, and agile methodologies, I&apos;m adept at 
-        translating stakeholder feedback into intuitive UI solutions.
+        Data scientist with a strong foundation in data engineering, specializing in the design, optimization, and deployment of scalable analytics solutions. 
+        Experienced in delivering high-impact data products within the enterprise aftermarket division at John Deere, with a focus on precision upgrade analytics, 
+        warranty forecasting, and dealer insights. Technical expertise includes Databricks, PySpark, Delta Lake, Power BI, and large-scale ETL workflows 
+        supporting 100M+ row transformations.
       </>
     ),
   },
@@ -83,79 +87,121 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Caterpillar",
-        timeframe: "2021",
-        role: "Visual Designer / User Tester",
+        company: "John Deere",
+        timeframe: "2024 - Present",
+        role: "Data Scientist - ISG A&A FurrowVision",
         achievements: [
           <>
-            Led UI/UX design for fleet management software, conceptualizing and prototyping 
-            solutions using Figma, winning 1st place in a competitive contest.
+            Architected end-to-end machine learning workflows, curating and annotating 10,000+ 
+            agricultural field images while implementing automated feature extraction pipelines 
+            for production-grade computer vision systems.
           </>,
           <>
-            Addressed critical user pain points related to asset tracking, designing an intuitive 
-            management page with calendar, spreadsheet, and advanced filtering views.
+            Co-developed PyTorch convolutional neural networks achieving 92% validation accuracy 
+            for multi-class agronomic feature detection with advanced data augmentation and 
+            GPU-accelerated training strategies.
           </>,
           <>
-            Conducted usability testing sessions with end users, yielding a 15% increase in user 
-            satisfaction based on post-redesign surveys.
+            Revolutionized annotation workflows through automated feature detection and active 
+            learning protocols, reducing per-image labeling time by 76% through intelligent 
+            model-assisted annotation.
+          </>,
+          <>
+            Optimized PySpark machine learning pipelines processing 92M+ image/metadata records, 
+            achieving 87.5% runtime reduction through distributed computing and model parallelization.
           </>,
         ],
         images: [],
       },
       {
-        company: "Jolt Foundation",
-        timeframe: "2021",
-        role: "User Experience Designer",
+        company: "Speaksense",
+        timeframe: "2023 - Present",
+        role: "Founder & Full-Stack Data Scientist",
         achievements: [
           <>
-            Rebuilt and rebranded the organization&apos;s website, creating a user-friendly platform 
-            that provided resources to over 500 local community members.
+            Built Next.js/React streaming analytics platform with Vercel AI SDK integration, 
+            achieving sub-2-second response times and processing 1M+ weekly records.
           </>,
           <>
-            Optimized the site&apos;s responsiveness across all devices, achieving 100% mobile 
-            compatibility and reducing page load times by 40%.
+            Engineered high-performance batch and parallel ingestion systems for YouTube metrics, 
+            delivering 90% processing speed improvement for large-scale analytics workloads.
           </>,
           <>
-            Presented four unique design options using wireframes and prototypes, resulting in 
-            a 50% increase in website traffic post-launch.
+            Implemented cost-effective GPT-4.1 API with Zod-validated SQL tool-calling system, 
+            providing personalized analytics at ~$1 per 1,000 queries through optimized 
+            prompt engineering.
+          </>,
+          <>
+            Developed interactive D3.js and Tremor chart systems with custom tooltips for 
+            time-series analysis of engagement metrics and CTR optimization.
           </>,
         ],
         images: [],
       },
       {
-        company: "Pekin Insurance",
-        timeframe: "2020 - 2021",
-        role: "User Experience Designer",
+        company: "John Deere",
+        timeframe: "2023 - 2024",
+        role: "Data Engineer - Aftermarket & Customer Sales",
         achievements: [
           <>
-            Utilized design thinking methodologies to solve complex user interaction challenges, 
-            resulting in a more intuitive interface that reduced onboarding time by 30%.
+            Architected PySpark-based recommendation engines processing 500K+ machine records, 
+            implementing advanced feature engineering and model deployment pipelines for 
+            scalable eCommerce integration.
           </>,
           <>
-            Conducted usability testing with internal stakeholders and end-users, improving 
-            user satisfaction by 20%.
+            Engineered machine learning models for PowerGard and JDProtect eligibility prediction, 
+            applying statistical analysis and clustering algorithms to categorize 654K machines 
+            by lifecycle patterns, enabling $107K in dealer reimbursements.
           </>,
           <>
-            Collaborated with cross-functional teams to ensure seamless implementation of design 
-            elements, reducing time to deployment by 15%.
+            Developed sophisticated data science solutions and mentored enterprise teams on 
+            advanced analytics techniques, leading cross-functional initiatives and resolving 
+            complex statistical modeling challenges.
+          </>,
+          <>
+            Delivered predictive analytics and recommendation systems contributing $52M+ in revenue 
+            across precision agriculture, warranty, and aftermarket segments through data-driven 
+            machine learning approaches.
           </>,
         ],
         images: [],
       },
       {
-        company: "The Walt Disney Company",
-        timeframe: "Aug 2023 - Jan 2024",
-        role: "Hotel Concierge / Guest Relations",
+        company: "John Deere",
+        timeframe: "2022 - 2023",
+        role: "BI Analyst - John Deere Financial",
         achievements: [
           <>
-            Used critical thinking and problem-solving skills to quickly develop tailored solutions 
-            for individual guest needs, applying user-centered design principles to address pain 
-            points and improve the overall guest experience.
+            Optimized Power BI reporting by converting queries to native Databricks API, 
+            reducing refresh times from 5-10 minutes to 20 seconds.
           </>,
           <>
-            Built positive connections with over 400 guests daily through genuine, enthusiastic 
-            interactions, contributing to a 15% increase in positive feedback scores and demonstrating 
-            strong user empathy skills essential for UX design.
+            Developed operational analytics dashboards replacing manual processes with 
+            automated daily-refreshed Power BI reports.
+          </>,
+          <>
+            Created JDF Mid-Market and Credit Lens dashboards showcased at leadership meetings 
+            for strategic decision-making.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "RLI Insurance Company",
+        timeframe: "2021 - 2022",
+        role: "Data Engineer Intern",
+        achievements: [
+          <>
+            Modernized enterprise analytics infrastructure, designing dimensional data models 
+            and implementing SQL-based transformations for underwriting and risk reporting.
+          </>,
+          <>
+            Optimized ETL processes achieving 70% reduction in refresh times while enabling 
+            near real-time analytics capabilities.
+          </>,
+          <>
+            Collaborated with business stakeholders to align technical solutions with compliance 
+            and operational requirements.
           </>,
         ],
         images: [],
@@ -168,7 +214,7 @@ const about = {
     institutions: [
       {
         name: "Bradley University",
-        description: <>Bachelor of Science in User Experience Design, graduated May 2022.</>,
+        description: <>Bachelor of Science in Computer Science - Data Science & Cybersecurity, graduated May 2022. GPA: 3.62</>,
       },
     ],
   },
@@ -177,18 +223,18 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "UX Design & Research",
-        description: <>Expert in user research, user flows, journey mapping, empathy mapping, persona creation, and usability testing with WCAG & ADA compliance.</>,
+        title: "Data Science & Machine Learning",
+        description: <>Expert in PyTorch, computer vision, natural language processing, statistical analysis, and predictive modeling with production deployment experience.</>,
         images: [],
       },
       {
-        title: "Design Tools",
-        description: <>Proficient in Figma, Sketch, Adobe XD, Webflow, and Elementor for wireframing, prototyping, and responsive web design.</>,
+        title: "Data Engineering & Analytics",
+        description: <>Proficient in PySpark, Databricks, Delta Lake, SQL, ETL pipelines, and large-scale data processing with enterprise-grade solutions.</>,
         images: [],
       },
       {
-        title: "Methodologies",
-        description: <>Experienced in Agile Product Development, Scrum, and Design Thinking processes for effective stakeholder communication and client relationship management.</>,
+        title: "Cloud & Development",
+        description: <>Experienced in GCP, Docker, GitHub Actions CI/CD, Next.js, PostgreSQL, and full-stack development for data-driven applications.</>,
         images: [],
       },
     ],
@@ -199,7 +245,7 @@ const work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: `Data science and engineering projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/work/projects
   // All projects will be listed on the /home and /work routes
 };
@@ -208,83 +254,83 @@ const gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `Project Gallery – ${person.name}`,
-  description: `A showcase of design work and project visuals by ${person.name}`,
-  // Images from work projects showcasing UX design process and outcomes
+  description: `A showcase of data science work and project visuals by ${person.name}`,
+  // Images from work projects showcasing data science process and outcomes
   images: [
     // Randomized order of all project images - all 16x9 horizontal format
     {
       src: "/images/projects/jolt/img3.png",
-      alt: "Mobile responsive design mockups",
+      alt: "FurrowVision computer vision model training results",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/caterpillar/img1.png",
-      alt: "Caterpillar fleet management interface design",
+      alt: "John Deere aftermarket recommendations dashboard",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/pekin/img2.png",
-      alt: "Streamlined onboarding process design",
+      alt: "RLI Insurance analytics pipeline architecture",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/jolt/img5.png",
-      alt: "Final website design implementation",
+      alt: "Agricultural field image annotation workflow",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/caterpillar/img4.png",
-      alt: "User testing session results",
+      alt: "PySpark data processing performance metrics",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/pekin/img1.png",
-      alt: "Insurance interface user flow diagram",
+      alt: "Insurance data warehouse dimensional model",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/jolt/img1.png",
-      alt: "Jolt Foundation website homepage design",
+      alt: "Computer vision model accuracy validation",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/caterpillar/img3.png",
-      alt: "Fleet management dashboard prototype",
+      alt: "Machine learning pipeline deployment",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/pekin/img5.png",
-      alt: "Final insurance interface design",
+      alt: "ETL performance optimization results",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/jolt/img2.png",
-      alt: "Community resources page layout",
+      alt: "Speaksense analytics platform interface",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/caterpillar/img2.png",
-      alt: "Asset tracking calendar view wireframe",
+      alt: "Revenue impact analytics dashboard",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/pekin/img4.png",
-      alt: "Usability testing feedback analysis",
+      alt: "Real-time data streaming architecture",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/jolt/img4.png",
-      alt: "Website performance optimization results",
+      alt: "Machine learning model inference optimization",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/caterpillar/img5.png",
-      alt: "Final fleet management interface",
+      alt: "Data science project outcome visualization",
       orientation: "horizontal",
     },
     {
       src: "/images/projects/pekin/img3.png",
-      alt: "Insurance dashboard wireframes",
+      alt: "Enterprise analytics infrastructure design",
       orientation: "horizontal",
     },
   ],

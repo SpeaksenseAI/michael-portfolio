@@ -79,8 +79,9 @@ export default async function Project({
           priority
           aspectRatio="16 / 9"
           radius="m"
-          alt="image"
+          alt={`${post.metadata.title} - Hero Image`}
           src={post.metadata.images[0]}
+          style={{ objectFit: 'contain', backgroundColor: 'var(--neutral-background-strong)' }}
         />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">

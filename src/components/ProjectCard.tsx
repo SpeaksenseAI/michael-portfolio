@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import {
@@ -52,11 +53,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className={styles.emblaContainer}>
           {images.map((image, index) => (
             <div className={styles.emblaSlide} key={index}>
-              <img
+              <Image
                 src={image}
-                alt={title}
+                alt={`${title} - Image ${index + 1}`}
                 className={styles.emblaSlideImg}
+                width={960}
+                height={540}
                 sizes="(max-width: 960px) 100vw, 960px"
+                quality={85}
+                priority={index === 0}
               />
             </div>
           ))}

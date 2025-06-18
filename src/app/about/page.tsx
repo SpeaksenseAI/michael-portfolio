@@ -10,7 +10,8 @@ import {
   Tag,
   Text,
   Meta,
-  Schema
+  Schema,
+  SmartLink
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -28,6 +29,15 @@ export async function generateMetadata() {
 }
 
 export default function About() {
+  // Map work experiences to their corresponding project pages
+  const projectLinks: { [key: string]: string } = {
+    "John Deere - ISG A&A FurrowVision": "/work/furrowvision",
+    "Speaksense": "/work/speaksense", 
+    "John Deere - Aftermarket & Customer Sales": "/work/aftermarket",
+    "John Deere - John Deere Financial": "/work/jdf",
+    "RLI Insurance Company": "/work/rli"
+  };
+
   const structure = [
     {
       title: about.intro.title,
@@ -138,6 +148,7 @@ export default function About() {
                                 size="s"
                                 weight="default"
                                 variant="secondary"
+                                target={item.target}
                             />
                             <IconButton
                                 className="s-flex-show"
@@ -146,6 +157,7 @@ export default function About() {
                                 href={item.link}
                                 icon={item.icon}
                                 variant="secondary"
+                                target={item.target}
                             />
                         </React.Fragment>
                     ),
@@ -166,58 +178,77 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
-                        <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${index}`}
-                        >
-                          {achievement}
+                {about.work.experiences.map((experience, index) => {
+                  // Create a unique key for project link mapping
+                  const projectKey = experience.company === "John Deere" 
+                    ? `${experience.company} - ${experience.role.split(' - ')[1] || experience.role}`
+                    : experience.company;
+                  const projectLink = projectLinks[projectKey];
+
+                  return (
+                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                      <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                        <Text id={experience.company} variant="heading-strong-l">
+                          {experience.company}
                         </Text>
-                      ))}
-                    </Column>
-                    {experience.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
+                        <Text variant="heading-default-xs" onBackground="neutral-weak">
+                          {experience.timeframe}
+                        </Text>
+                      </Flex>
+                      <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                        {experience.role}
+                      </Text>
+                      <Column as="ul" gap="16" marginBottom="m">
+                        {experience.achievements.map((achievement: JSX.Element, index: number) => (
+                          <Text
+                            as="li"
+                            variant="body-default-m"
+                            key={`${experience.company}-${index}`}
                           >
-                            <Media
-                              enlarge
+                            {achievement}
+                          </Text>
+                        ))}
+                      </Column>
+                      {projectLink && (
+                        <Flex gap="12" marginBottom="m">
+                          <SmartLink
+                            suffixIcon="arrowRight"
+                            style={{ margin: "0", width: "fit-content" }}
+                            href={projectLink}
+                          >
+                            <Text variant="body-default-s">View details</Text>
+                          </SmartLink>
+                        </Flex>
+                      )}
+                      {experience.images.length > 0 && (
+                        <Flex fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                          {experience.images.map((image, index) => (
+                            <Flex
+                              key={index}
+                              border="neutral-medium"
                               radius="m"
                               //@ts-ignore
-                              sizes={image.width.toString()}
+                              minWidth={image.width}
                               //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                //@ts-ignore
+                                sizes={image.width.toString()}
+                                //@ts-ignore
+                                alt={image.alt}
+                                //@ts-ignore
+                                src={image.src}
+                              />
+                            </Flex>
+                          ))}
+                        </Flex>
+                      )}
+                    </Column>
+                  );
+                })}
               </Column>
             </>
           )}

@@ -61,7 +61,6 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          <Image src={person.logo} alt="Logo" width={40} height={40} />
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex

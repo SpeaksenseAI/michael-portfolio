@@ -37,6 +37,7 @@ export const Footer = () => {
                   tooltip={item.name}
                   size="s"
                   variant="ghost"
+                  target={item.target}
                 />
               ),
           )}

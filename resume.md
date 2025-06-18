@@ -1,127 +1,62 @@
-Nick Natalie
+# Michael Baylard
+**Data Scientist & Full-Stack Engineer**  
+Chicago, IL, USA | (636) 582-0073 | baylardmichael@gmail.com | [linkedin.com/in/michaelbaylard](https://linkedin.com/in/michaelbaylard)
 
-Contact
-Email:
+## Work Experience
 
-NickJohnNatalie@gmail.com
-Phone Number:
+### John Deere | Chicago, IL, USA
+**Data Scientist** • *ISG A&A FurrowVision – Intelligent Solutions Group* • 2024 - Present
+- **Novel Dataset Architecture**: Designed end-to-end computer vision workflows, curating and annotating 10,000+ agricultural field images while implementing automated data-cleaning pipelines and annotation standards for production-grade CVML models
+- **Database Engineering**: Architected relational schemas and ETL pipelines converting SuperAnnotate's NoSQL annotations into optimized relational tables, enabling seamless CVML model consumption and historical data analysis
+- **Computer Vision Excellence**: Co-developed PyTorch deep learning models achieving **92% validation accuracy** for agronomic feature detection with GPU-optimized batching for maximum inference performance
+- **Process Optimization**: Revolutionized human-in-the-loop annotation workflows through autonomous keypoint placement and refined tagging protocols, **reducing per-image annotation time by 76%** (25+ seconds → 6 seconds) and cutting total annotation costs by 80%
+- **Big Data Performance**: Optimized PySpark pipelines processing **92M+ image/metadata records**, achieving **87.5% runtime reduction** (8 hours → 1 hour) through advanced parallel computing and containerization strategies
 
-+1 (708) 870-9491
-Location:
+**Data Engineer** • *DA&CS – Data Aftermarket & Customer Sales* • 2023 - 2024
+- **Enterprise-Scale Recommendations**: Architected machine-specific aftermarket recommendation pipelines using PySpark, processing **500K+ machine records** across US/CA and global markets with enterprise coding standards for scalable eCommerce and PoPS integration
+- **Revenue-Generating Analytics**: Engineered PowerGard and JDProtect inspection eligibility systems categorizing **654K machines** by lifecycle metrics, enabling targeted maintenance recommendations that drove **$107K in dealer reimbursements**
+- **Power BI Leadership**: Earned "Power-User" recognition with dual badges of excellence, leading enterprise-wide Power BI Doctor sessions and resolving complex reporting challenges for practitioners across business units
+- **Business Impact**: Delivered data science solutions contributing **$52M+ in revenue** across precision agriculture, warranty, and aftermarket business segments
 
-Chicago, IL
-LinkedIn Username:
+**BI Analyst** • *JDF – John Deere Financial* • 2022 - 2023
+- **Performance Engineering**: Transformed Power BI reporting architecture by migrating scheduled queries to native Databricks API connectors, achieving **95% performance improvement** (5-10 minutes → 20 seconds) while eliminating storage overhead
+- **Executive Dashboards**: Developed automated JDF operational analytics platforms (Mid-Market and Credit Lens) replacing manual processes with real-time Power BI solutions, presenting insights directly to JDF Retail Credit leadership teams
+- **Data Pipeline Automation**: Implemented automated data ingestion from source systems, enabling daily-refreshed reporting capabilities and eliminating manual intervention requirements
 
-nick-natalie
-About
-User Experience Designer with a B.S. in User Experience Design and hands-on experience improving digital workflows through user research, wireframing, and prototyping. Redesigned an asset-tracking interface at Caterpillar, winning first place in an internal contest, and optimized paperless billing at Pekin Insurance—contributing to $2M in material savings every six months. Skilled in Figma, Sketch, accessibility compliance, and agile methodologies, adept at translating stakeholder feedback into intuitive UI solutions.
-Work Experience
-Visual Designer / User Tester
-Caterpillar
-2021
-to
+### Speaksense | Chicago, IL, USA
+**Founder & Full-Stack Data Scientist** • 2023 - Present
+- **Real-Time Platform Architecture**: Built Next.js/React streaming analytics platform with Vercel AI SDK integration, achieving **sub-2-second response times** and processing **1M+ weekly records** for YouTube content creators
+- **Data Pipeline Excellence**: Engineered high-performance batch and parallel ingestion systems for YouTube metrics into PostgreSQL, delivering **90% processing speed improvement** for large-scale analytics workloads
+- **LLM Integration**: Implemented cost-effective GPT-4.1 API with Zod-validated SQL tool-calling system, providing personalized analytics at **~$1 per 1,000 queries** through optimized prompt engineering
+- **Advanced Visualization**: Developed interactive D3.js and Tremor chart systems with custom tooltips for time-series analysis of engagement metrics, views, and CTR optimization
+- **DevOps & Deployment**: Architected containerized microservices with GitHub Actions CI/CD, deploying scalable solutions on Vercel and GCP serverless infrastructure
 
-2021
-Peoria, IL, USA
-Led UI/UX design for fleet management software, conceptualizing and prototyping solutions using Figma, winning 1st place in a competitive contest.
-Addressed critical user pain points related to asset tracking, designing an intuitive management page with calendar, spreadsheet, and advanced filtering views [used by <X> users, resulting in <Y>% faster asset retrieval].
-Conducted usability testing sessions with end users to gather qualitative and quantitative feedback, yielding a 15% increase in user satisfaction based on post-redesign surveys.
-Collaborated closely with the client to ensure design solutions met specific needs for asset placement, maintenance, and scheduling, producing client requirements fulfilled and a satisfaction rating of 9/10.
-User Experience Designer
-Jolt Foundation
-2021
-to
+### RLI Insurance Company | Peoria, IL, USA
+**Data Engineer Intern** • *Enterprise Analytics Infrastructure* • 2021 - 2022
+- **Infrastructure Modernization**: Led enterprise analytics transformation, centralizing underwriting and risk reporting data from multiple legacy systems into unified dimensional data warehouse architecture
+- **Performance Optimization**: Implemented advanced SQL transformations and optimization techniques, achieving **70% reduction in ETL refresh times** for critical business reporting systems
+- **Dimensional Modeling**: Designed comprehensive star and snowflake schemas optimized for insurance analytics, enabling complex analytical queries across underwriting and risk assessment domains
+- **Real-Time Analytics**: Enabled near real-time analytics capabilities for underwriting decisions, supporting accelerated business response times while maintaining regulatory compliance
 
-2021
-Peoria, IL, USA
-Rebuilt and rebranded the organization’s website, creating a user-friendly platform that provided resources to over 500 local community members. Focused on improving the site’s navigation, layout, and branding to increase user engagement by 30%.
-Spent 5 months optimizing the site’s responsiveness across all devices, achieving a 100% mobile compatibility rate and reducing page load times by 40%, leading to a smoother user experience on both desktop and mobile platforms.
-Formulated and presented four unique design options, using wireframes and prototypes built with tools like Figma and Adobe XD, with a focus on intuitive usability and accessibility, resulting in a 50% increase in website traffic post-launch.
-User Experience Designer
-Pekin Insurance
-2020
-to
+## Education
 
-2021
-Utilized design thinking methodologies to solve complex user interaction challenges, resulting in a more intuitive and streamlined interface that reduced onboarding time by 30%.
-Conducted usability testing with internal stakeholders and end-users, gathering feedback to iterate and refine design solutions, which improved user satisfaction by 20%.
-Collaborated with cross-functional teams, including developers and project managers, to ensure the seamless implementation of design elements, elevating user experience and reducing time to deployment by 15%.
-Additional Experience
-Hotel Concierge
-The Walt Disney Company
-Aug '23
-to
+**Bradley University** • Peoria, IL • 2022  
+*Bachelor of Science, Computer Science*  
+**Specializations:** Data Science & Cybersecurity | **GPA:** 3.62
 
-Jan '24
-Orlando, FL, USA
-Leverage in-depth knowledge of virtual guest-facing tools, park attractions, entertainment schedules, and special services to guide guests in planning and optimizing their itineraries.
-Resolved guest inquiries and concerns for over 400 guests daily, enhancing overall satisfaction and contributing to a 15% increase in positive feedback scores.
-Education
-Bradley University
-Bachelor of Science (BS)
--
+## Certifications
 
-User Experience Design
-May '22
-Links
-Portfolio
-https://nick-nataliesnatalie-portfolio-website.webflow.io/
-Skills
-UX Design
-User Research
--
+**President's Award** • John Deere • 2023  
+*Enterprise Aftermarket Data and Analytics Excellence*
 
-User Flows
--
+**Microsoft Certified: Power BI Data Analyst Associate** • Microsoft • 2023  
+*Credential ID: 36CB648123A0EFEC*
 
-Journey Mapping
--
+## Core Technical Skills
 
-Empathy Mapping
--
-
-Persona Creation
--
-
-Usability Testing
--
-
-Accessibility (WCAG & ADA Compliance)
-UI Design
-Wireframing
--
-
-Prototyping
--
-
-Mockups
--
-
-Responsive Web Design
-Design Tools
-Figma
--
-
-Sketch
--
-
-Elementor
--
-
-Adobe XD
--
-
-Webflow
-Processes & Methodologies
-Agile Product Development
--
-
-Scrum
--
-
-Design Thinking
-Soft Skills
-Stakeholder Communication
--
-
-Client Relationship Management
+**Programming:** Python, SQL, R, JavaScript/TypeScript, C++  
+**Data Science:** PyTorch, PySpark, Pandas, NumPy, Scikit-learn  
+**Cloud & Infrastructure:** AWS, GCP, Azure, Docker, Kubernetes  
+**Databases:** PostgreSQL, MongoDB, Databricks, Snowflake  
+**Visualization:** Power BI, D3.js, Tableau, Matplotlib, Plotly  
+**MLOps:** MLflow, Airflow, GitHub Actions, CI/CD pipelines
