@@ -1,69 +1,81 @@
-# **Nick Natalie - UX Designer Portfolio**
+# **Michael Baylard - Data Scientist Portfolio**
 
-A professional portfolio showcasing user experience design work and expertise.
+A professional portfolio showcasing data science, machine learning, and analytics expertise.
 
-![Portfolio Preview](https://nick-natalie-portfolio.vercel.app/images/og/home.png)
+![Portfolio Preview](https://michael-portfolio.vercel.app/images/og/home.png)
 
-## **About Nick**
+## **About Michael**
 
-User Experience Designer with a B.S. in User Experience Design from Bradley University. Passionate about transforming complex challenges into intuitive experiences through user research, wireframing, and prototyping.
+Data Scientist with a B.S. in Computer Science from Bradley University. Specializing in machine learning, data engineering, and analytics to create scalable solutions that drive business results and optimize complex systems.
 
-**Contact:** [LinkedIn](https://www.linkedin.com/in/nick-natalie/) | NickJohnNatalie@gmail.com
+**Contact:** [LinkedIn](https://www.linkedin.com/in/michaelbaylard) | [Resume](/Michael%20Baylard%20-%20Resume.pdf)
 
 ## **Featured Work**
 
-### **Caterpillar Fleet Management Software (2021)**
-Award-winning UI/UX redesign that won 1st place in internal competition
-- Led comprehensive user research and usability testing
-- Designed intuitive asset tracking interface with multiple view options
-- Achieved 15% increase in user satisfaction
+### **FurrowVision Computer Vision System - John Deere (2024-Present)**
+Advanced computer vision system for agricultural field analysis
+- Architected end-to-end ML workflows with 10,000+ agricultural field images
+- Achieved 92% validation accuracy for multi-class agronomic feature detection
+- Reduced annotation time by 76% through optimized human-in-the-loop workflows
+- Optimized PySpark pipelines processing 92M+ records with 87.5% runtime reduction
 
-### **Jolt Foundation Website Rebuild (2021)**
-Complete website redesign serving 500+ community members
-- Improved mobile responsiveness to 100% compatibility
-- Reduced page load times by 40%
-- Increased website traffic by 50% post-launch
+### **Aftermarket Recommendations System - John Deere (2023-2024)**
+Machine-specific aftermarket recommendations using advanced analytics
+- Processed 500K+ machine records with PySpark-based recommendation engines
+- Contributed $52M+ in revenue across precision, warranty, and aftermarket segments
+- Enabled $107K in dealer reimbursements through predictive maintenance recommendations
+- Deployed scalable ML pipelines across US/Canadian and global markets
 
-### **Pekin Insurance Interface Redesign (2020-2021)**
-Streamlined complex insurance workflows using design thinking
-- Reduced user onboarding time by 30%
-- Improved user satisfaction by 20%
-- Enhanced cross-functional collaboration processes
+### **Speaksense Analytics Platform (2023-Present)**
+Full-stack YouTube analytics platform with LLM integration
+- Built Next.js/React streaming platform processing 1M+ weekly records
+- Achieved sub-2-second response times with cost-effective GPT-4.1 API integration
+- Engineered high-performance data pipelines with 90% processing speed improvement
+- Developed interactive D3.js visualizations for engagement analytics
 
-### **Disney Guest Experience (2023-2024)**
-Applied UX principles in guest relations role
-- Solved individual guest needs using user-centered design thinking
-- Built connections with 400+ guests daily
-- Contributed to 15% increase in positive feedback scores
+### **Business Intelligence Analytics - John Deere Financial (2022-2023)**
+Enterprise reporting architecture transformation
+- Achieved 95% performance improvement in Power BI reporting (5-10 minutes → 20 seconds)
+- Developed automated analytics platforms replacing manual processes
+- Created executive dashboards for JDF leadership decision-making
+- Implemented real-time data processing with Databricks API integration
+
+### **Insurance Analytics Infrastructure - RLI (2021-2022)**
+Enterprise analytics infrastructure modernization
+- Reduced ETL refresh times by 70% through SQL optimization
+- Designed dimensional data models for underwriting and risk reporting
+- Enabled near real-time analytics for risk assessment decisions
+- Modernized legacy systems while maintaining regulatory compliance
 
 ## **Skills & Expertise**
 
-**UX Design & Research**
-- User research, journey mapping, persona creation
-- Usability testing and accessibility compliance (WCAG & ADA)
-- Wireframing and prototyping
+**Data Science & Machine Learning**
+- PyTorch, computer vision, natural language processing
+- Statistical analysis and predictive modeling
+- Production deployment and model optimization
 
-**Design Tools**
-- Figma, Sketch, Adobe XD
-- Webflow and Elementor
-- Responsive web design
+**Data Engineering & Analytics**
+- PySpark, Databricks, Delta Lake, SQL
+- ETL pipelines and large-scale data processing
+- Enterprise-grade analytics solutions
 
-**Methodologies**
-- Design Thinking and Agile/Scrum processes
-- Cross-functional collaboration
-- Stakeholder communication and client management
+**Cloud & Development**
+- GCP, Docker, GitHub Actions CI/CD
+- Next.js, PostgreSQL, full-stack development
+- Containerized microservices and serverless infrastructure
 
 ## **Education**
 
-**Bradley University** - Bachelor of Science in User Experience Design (2022)
+**Bradley University** - Bachelor of Science in Computer Science - Data Science & Cybersecurity (2022)  
+GPA: 3.62
 
 ## **Portfolio Sections**
 
 **Home** - Introduction and featured project showcase  
-**About** - Professional background, experience, and skills  
-**Work** - Detailed project case studies with process and outcomes  
-**Gallery** - Visual showcase of design work and project artifacts
+**About** - Professional background, work experience, and technical skills  
+**Work** - Detailed project case studies with technical implementations and business impact  
+**Gallery** - Visual showcase of data science work and project outcomes
 
 ---
 
-*Built with Next.js and Once UI • Deployed on Vercel*
+*Built with Next.js, TypeScript, and Tailwind CSS • Deployed on Vercel*
