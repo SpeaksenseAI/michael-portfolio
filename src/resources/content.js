@@ -1,16 +1,16 @@
 const person = {
-  firstName: "Michael",
-  lastName: "Baylard",
+  firstName: "Nick",
+  lastName: "Natalie",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Data Scientist",
+  role: "UX Designer",
   avatar: "/images/avatar.jpg",
-  email: "baylardmichael@gmail.com",
+  email: "NickJohnNatalie@gmail.com",
   location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
-  linkedin: "https://www.linkedin.com/in/michaelbaylard",
-  // logo: "/images/projects/logo.png",
+  linkedin: "https://www.linkedin.com/in/nick-natalie/",
+  logo: "/images/projects/logo.png",
 };
 
 const social = [
