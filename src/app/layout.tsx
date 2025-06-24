@@ -73,10 +73,24 @@ export default async function RootLayout({
                     return themeValue;
                   };
                   
+                  // Apply theme
+                  const applyTheme = () => {
+                    const savedTheme = localStorage.getItem('data-theme') || defaultTheme;
+                    const resolvedTheme = resolveTheme(savedTheme);
+                    root.setAttribute('data-theme', resolvedTheme);
+                  };
+                  
                   // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
+                  applyTheme();
+                  
+                  // Listen for system preference changes
+                  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                  mediaQuery.addEventListener('change', () => {
+                    const savedTheme = localStorage.getItem('data-theme');
+                    if (!savedTheme || savedTheme === 'system') {
+                      applyTheme();
+                    }
+                  });
                   
                   // Apply any saved style overrides
                   const styleKeys = Object.keys(config);
