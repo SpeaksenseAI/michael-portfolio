@@ -257,80 +257,84 @@ const gallery = {
   description: `A showcase of data science work and project visuals by ${person.name}`,
   // Images from work projects showcasing data science process and outcomes
   images: [
-    // Randomized order of all project images - all 16x9 horizontal format
+    // Aftermarket project images
     {
-      src: "/images/projects/jolt/img3.png",
-      alt: "FurrowVision computer vision model training results",
+      src: "/images/projects/aftermarket/img1.jpg",
+      alt: "Aftermarket recommendations pipeline architecture",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img1.png",
-      alt: "John Deere aftermarket recommendations dashboard",
+      src: "/images/projects/aftermarket/img2.jpg",
+      alt: "Machine learning model deployment workflow",
+      orientation: "horizontal",
+    },
+    // RLI project images
+    {
+      src: "/images/projects/rli/img1.jpg",
+      alt: "Insurance analytics infrastructure modernization",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img2.png",
-      alt: "RLI Insurance analytics pipeline architecture",
+      src: "/images/projects/rli/img2.jpg",
+      alt: "Dimensional data model design",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/jolt/img5.png",
-      alt: "Agricultural field image annotation workflow",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/caterpillar/img4.png",
-      alt: "PySpark data processing performance metrics",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/pekin/img1.png",
-      alt: "Insurance data warehouse dimensional model",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/jolt/img1.png",
-      alt: "Computer vision model accuracy validation",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/caterpillar/img3.png",
-      alt: "Machine learning pipeline deployment",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/pekin/img5.png",
+      src: "/images/projects/rli/img3.jpg",
       alt: "ETL performance optimization results",
       orientation: "horizontal",
     },
+    // Speaksense project images
     {
-      src: "/images/projects/jolt/img2.png",
+      src: "/images/projects/speaksense/img1.png",
       alt: "Speaksense analytics platform interface",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img2.png",
-      alt: "Revenue impact analytics dashboard",
+      src: "/images/projects/speaksense/img2.png",
+      alt: "Real-time YouTube analytics dashboard",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img4.png",
-      alt: "Real-time data streaming architecture",
+      src: "/images/projects/speaksense/img3.png",
+      alt: "LLM-powered insights visualization",
+      orientation: "horizontal",
+    },
+    // JDF project images
+    {
+      src: "/images/projects/jdf/img1.jpg",
+      alt: "Power BI reporting architecture optimization",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/jolt/img4.png",
-      alt: "Machine learning model inference optimization",
+      src: "/images/projects/jdf/img2.jpg",
+      alt: "JDF operational analytics platform",
+      orientation: "horizontal",
+    },
+    // FurrowVision project images
+    {
+      src: "/images/projects/furrowvision/img1.jpg",
+      alt: "Agricultural field image annotation workflow",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img5.png",
-      alt: "Data science project outcome visualization",
+      src: "/images/projects/furrowvision/img2.jpg",
+      alt: "Computer vision model training pipeline",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img3.png",
-      alt: "Enterprise analytics infrastructure design",
+      src: "/images/projects/furrowvision/img3.jpg",
+      alt: "Deep learning model accuracy validation",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/furrowvision/img4.jpg",
+      alt: "ML operations and workflow optimization",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/furrowvision/img5.jpg",
+      alt: "Distributed computing and model scaling",
       orientation: "horizontal",
     },
   ],
