@@ -1,153 +1,129 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
+import { HiBars3, HiXMark } from "react-icons/hi2";
+import { Button, Flex, Text } from "@once-ui-system/core";
 
-import { routes, display, person, about, work, gallery } from "@/resources";
+import { display, person, site, social } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
-};
-
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-US" }) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
+function isNavActive(pathname: string, href: string, hash: string): boolean {
+  if (href === "/work") return pathname.startsWith("/work");
+  if (href.startsWith("/#")) {
+    return pathname === "/" && hash === href.slice(1);
+  }
+  return false;
+}
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [hash, setHash] = useState("");
+  const resume = social.find((s) => s.name === "Resume");
+
+  const nav = site.header.nav;
+
+  useEffect(() => {
+    const sync = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   return (
-    <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
-      <Flex
-        fitHeight
-        position="unset"
-        className={styles.position}
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-        data-border="rounded"
-      >
-        <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-        </Flex>
-        <Flex fillWidth horizontal="center">
-          <Flex
-            background="page"
-            border="neutral-alpha-weak"
-            radius="m-4"
-            shadow="l"
-            padding="4"
-            horizontal="center"
-            zIndex={1}
+    <header className={styles.shell}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.brand} onClick={() => setMenuOpen(false)}>
+          <Text variant="heading-strong-m">{person.name}</Text>
+        </Link>
+
+        <nav className={styles.navDesktop} aria-label="Primary">
+          {nav.map((item) => {
+            const active = isNavActive(pathname, item.href, hash);
+            return (
+              <Link
+                key={item.href + item.label}
+                href={item.href}
+                className={`${styles.navLink} ${active ? styles.navLinkActive : ""}`}
+              >
+                <Text
+                  variant="label-default-s"
+                  style={{ letterSpacing: "0.12em", textTransform: "uppercase" }}
+                >
+                  {item.label}
+                </Text>
+              </Link>
+            );
+          })}
+        </nav>
+
+        <Flex className={styles.rightCluster}>
+          {display.themeSwitcher && <ThemeToggle />}
+          {resume?.link && (
+            <Button
+              href={resume.link}
+              variant="primary"
+              size="s"
+              prefixIcon="document"
+              target={resume.target}
+              className={styles.ctaDesktop}
+            >
+              {site.header.ctaLabel}
+            </Button>
+          )}
+          <button
+            type="button"
+            className={styles.burger}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((o) => !o)}
           >
-            <Flex gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    href="/about"
-                    label={about.label}
-                    selected={pathname === "/about"}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="person"
-                    href="/about"
-                    selected={pathname === "/about"}
-                  />
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    href="/work"
-                    selected={pathname.startsWith("/work")}
-                  />
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                </>
-              )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
-            </Flex>
-          </Flex>
+            {menuOpen ? <HiXMark size={22} /> : <HiBars3 size={22} />}
+          </button>
         </Flex>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            textVariant="body-default-s"
-            gap="20"
-          >
-          </Flex>
-        </Flex>
-      </Flex>
-    </>
+      </div>
+
+      {menuOpen && (
+        <nav className={styles.mobilePanel} aria-label="Mobile primary">
+          {nav.map((item) => (
+            <Link
+              key={item.href + item.label}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className={`${styles.navLink} ${isNavActive(pathname, item.href, hash) ? styles.navLinkActive : ""}`}
+            >
+              <Text
+                variant="body-default-m"
+                style={{ letterSpacing: "0.1em", textTransform: "uppercase" }}
+              >
+                {item.label}
+              </Text>
+            </Link>
+          ))}
+          {resume?.link && (
+            <Button
+              href={resume.link}
+              variant="primary"
+              size="m"
+              prefixIcon="document"
+              target={resume.target}
+            >
+              {site.header.ctaLabel}
+            </Button>
+          )}
+        </nav>
+      )}
+    </header>
   );
 };

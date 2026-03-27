@@ -16,6 +16,11 @@ type Metadata = {
   image?: string;
   images: string[];
   tag?: string;
+  /** e.g. Product, Production ML — shown as list meta (Jonathan Chang–style index) */
+  category?: string;
+  /** e.g. Done, In progress — Lise-style project cards */
+  status?: string;
+  tags?: string[];
   team: Team[];
   link?: string;
 };
@@ -45,6 +50,9 @@ function readMDXFile(filePath: string) {
     image: data.image || "",
     images: data.images || [],
     tag: data.tag || [],
+    category: data.category || "",
+    status: data.status || "Done",
+    tags: Array.isArray(data.tags) ? data.tags : [],
     team: data.team || [],
     link: data.link || "",
   };

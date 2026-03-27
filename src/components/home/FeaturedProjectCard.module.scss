@@ -1,0 +1,18 @@
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.status {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+}

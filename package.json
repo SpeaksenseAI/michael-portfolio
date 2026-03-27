@@ -1,11 +1,13 @@
 {
-  "name": "@once-ui-system/magic-portfolio",
-  "version": "2.2.0",
+  "name": "michael-baylard-portfolio",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "dev": "next dev",
+    "dev": "kill-port 3000 3001 && next dev --turbopack -p 3000",
+    "dev:webpack": "kill-port 3000 3001 && next dev -p 3000",
     "export": "next export",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
@@ -33,6 +35,7 @@
     "@types/react-dom": "^18.3.6",
     "eslint": "^9.25.0",
     "eslint-config-next": "^15.3.3",
+    "kill-port": "^2.0.1",
     "typescript": "^5.8.3"
   }
 }

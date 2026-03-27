@@ -31,11 +31,9 @@ export async function generateMetadata() {
 export default function About() {
   // Map work experiences to their corresponding project pages
   const projectLinks: { [key: string]: string } = {
-    "John Deere - ISG A&A FurrowVision": "/work/furrowvision",
-    "Speaksense": "/work/speaksense", 
-    "John Deere - Aftermarket & Customer Sales": "/work/aftermarket",
-    "John Deere - John Deere Financial": "/work/jdf",
-    "RLI Insurance Company": "/work/rli"
+    Speaksense: "/work/speaksense",
+    Klarix: "/work/klarix",
+    "John Deere - AI Engineer / Data Scientist": "/work/furrowvision",
   };
 
   const structure = [
@@ -61,7 +59,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="l" className="page-shell">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -123,8 +121,8 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            <Heading className={`${styles.textAlign} gradient-text text-center`} variant="display-strong-xl">
-              <span className="gradient-text">{person.name}</span>
+            <Heading className={`${styles.textAlign} text-center`} variant="display-strong-xl">
+              {person.name}
             </Heading>
             <Text
               className={styles.textAlign}
@@ -186,7 +184,14 @@ export default function About() {
                   const projectLink = projectLinks[projectKey];
 
                   return (
-                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                    <Column
+                      key={`${experience.company}-${experience.role}-${index}`}
+                      fillWidth
+                      padding="24"
+                      radius="l"
+                      gap="m"
+                      className="elevated-card"
+                    >
                       <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
                         <Text id={experience.company} variant="heading-strong-l">
                           {experience.company}

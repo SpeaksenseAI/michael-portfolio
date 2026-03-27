@@ -78,7 +78,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {title && (
           <Flex flex={5}>
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              <span className="gradient-text">{title}</span>
+              {title}
             </Heading>
           </Flex>
         )}

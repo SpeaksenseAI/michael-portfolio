@@ -1,5 +1,7 @@
-import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { Column, Flex, SmartLink, Text } from "@once-ui-system/core";
+
+import { person, site, social } from "@/resources";
+import packageJson from "../../package.json";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -9,41 +11,48 @@ export const Footer = () => {
     <Flex
       as="footer"
       fillWidth
-      padding="8"
+      padding="24"
       horizontal="center"
       mobileDirection="column"
+      border="neutral-alpha-weak"
+      style={{ borderWidth: "1px 0 0 0" }}
     >
-      <Flex
-        className={styles.mobile}
+      <Column
+        className={styles.block}
         maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="space-between"
-        vertical="center"
+        gap="24"
+        horizontal="center"
+        style={{ textAlign: "center" }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
+        <Text variant="heading-strong-l">{person.name}</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          {site.footer.tagline}
         </Text>
-        <Flex gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                  target={item.target}
-                />
-              ),
-          )}
-        </Flex>
-      </Flex>
-      <Flex height="80" show="s"></Flex>
+
+        <Column gap="12">
+          <Text variant="heading-strong-s">{site.footer.connectTitle}</Text>
+          <Flex gap="16" wrap horizontal="center" vertical="center">
+            {social.map(
+              (item) =>
+                item.link && (
+                  <SmartLink
+                    key={item.name}
+                    href={item.link}
+                    target={item.target}
+                    style={{ margin: 0 }}
+                  >
+                    <Text variant="body-default-s">{item.name}</Text>
+                  </SmartLink>
+                ),
+            )}
+          </Flex>
+        </Column>
+
+        <Text variant="label-default-s" onBackground="neutral-weak">
+          {packageJson.version} © {currentYear} / {person.name}
+        </Text>
+      </Column>
+      <Flex height="80" show="s" />
     </Flex>
   );
 };

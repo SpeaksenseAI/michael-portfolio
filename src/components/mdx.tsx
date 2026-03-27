@@ -142,6 +142,145 @@ function createCodeBlock(props: any) {
   return <pre {...props} />;
 }
 
+function createTable({ children, ...props }: React.HTMLAttributes<HTMLTableElement>) {
+  return (
+    <div style={{ overflowX: "auto", marginTop: "var(--static-space-8)", marginBottom: "var(--static-space-16)" }}>
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          fontSize: "var(--font-size-body-default-s)",
+          lineHeight: "1.6",
+        }}
+        {...props}
+      >
+        {children}
+      </table>
+    </div>
+  );
+}
+
+function createThead({ children, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) {
+  return (
+    <thead
+      style={{
+        borderBottom: "2px solid var(--brand-alpha-medium)",
+        textAlign: "left",
+      }}
+      {...props}
+    >
+      {children}
+    </thead>
+  );
+}
+
+function createTh({ children, ...props }: React.HTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <th
+      style={{
+        padding: "var(--static-space-8) var(--static-space-12)",
+        fontWeight: 600,
+        color: "var(--neutral-on-background-strong)",
+        whiteSpace: "nowrap",
+      }}
+      {...props}
+    >
+      {children}
+    </th>
+  );
+}
+
+function createTd({ children, ...props }: React.HTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <td
+      style={{
+        padding: "var(--static-space-8) var(--static-space-12)",
+        borderBottom: "1px solid var(--neutral-alpha-weak)",
+        color: "var(--neutral-on-background-medium)",
+      }}
+      {...props}
+    >
+      {children}
+    </td>
+  );
+}
+
+function createList({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) {
+  return (
+    <ul
+      style={{
+        paddingLeft: "var(--static-space-20)",
+        marginTop: "var(--static-space-4)",
+        marginBottom: "var(--static-space-12)",
+        listStyleType: "disc",
+        color: "var(--neutral-on-background-medium)",
+        lineHeight: "1.75",
+        fontSize: "var(--font-size-body-default-m)",
+      }}
+      {...props}
+    >
+      {children}
+    </ul>
+  );
+}
+
+function createOrderedList({ children, ...props }: React.HTMLAttributes<HTMLOListElement>) {
+  return (
+    <ol
+      style={{
+        paddingLeft: "var(--static-space-20)",
+        marginTop: "var(--static-space-4)",
+        marginBottom: "var(--static-space-12)",
+        listStyleType: "decimal",
+        color: "var(--neutral-on-background-medium)",
+        lineHeight: "1.75",
+        fontSize: "var(--font-size-body-default-m)",
+      }}
+      {...props}
+    >
+      {children}
+    </ol>
+  );
+}
+
+function createListItem({ children, ...props }: React.HTMLAttributes<HTMLLIElement>) {
+  return (
+    <li
+      style={{
+        marginBottom: "var(--static-space-4)",
+      }}
+      {...props}
+    >
+      {children}
+    </li>
+  );
+}
+
+function createStrong({ children, ...props }: React.HTMLAttributes<HTMLElement>) {
+  return (
+    <strong
+      style={{ color: "var(--neutral-on-background-strong)", fontWeight: 600 }}
+      {...props}
+    >
+      {children}
+    </strong>
+  );
+}
+
+function createHr(props: React.HTMLAttributes<HTMLHRElement>) {
+  return (
+    <hr
+      style={{
+        border: "none",
+        borderTop: "1px solid var(--neutral-alpha-weak)",
+        marginTop: "var(--static-space-24)",
+        marginBottom: "var(--static-space-24)",
+      }}
+      {...props}
+    />
+  );
+}
+
 const components = {
   p: createParagraph as any,
   h1: createHeading("h1") as any,
@@ -154,6 +293,15 @@ const components = {
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
+  table: createTable as any,
+  thead: createThead as any,
+  th: createTh as any,
+  td: createTd as any,
+  ul: createList as any,
+  ol: createOrderedList as any,
+  li: createListItem as any,
+  strong: createStrong as any,
+  hr: createHr as any,
   Heading,
   Text,
   CodeBlock,

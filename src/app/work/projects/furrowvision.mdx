@@ -1,76 +1,68 @@
 ---
-title: "FurrowVision Computer Vision System - John Deere"
-publishedAt: "2025-01-01"
-summary: "Developed end-to-end computer vision system for agricultural field analysis, achieving 92% accuracy on validation set and reducing annotation time by 76% through optimized human-in-the-loop workflows."
+title: "FurrowVision — Production Computer Vision at Field Scale"
+publishedAt: "2025-06-01"
+category: "Production ML"
+status: "Done"
+tags:
+  - "Computer Vision"
+  - "PyTorch"
+  - "Databricks"
+  - "DINOv2"
+  - "EfficientNet"
+  - "MobileNet"
+summary: "Production CV at John Deere Precision Agriculture — 38M+ sensor images, F1 0.44 → 0.92, architecture compression from SwinTransformer to MobileNetV2/EfficientNet-B0, DINOv2 embedding-driven dataset curation, and a self-serve ML platform. $82M+ revenue influenced FY23–24."
 images:
   - "/images/projects/furrowvision/img1.jpg"
   - "/images/projects/furrowvision/img2.jpg"
   - "/images/projects/furrowvision/img3.jpg"
   - "/images/projects/furrowvision/img4.jpg"
   - "/images/projects/furrowvision/img5.jpg"
+  - "/images/projects/furrowvision/img6.jpg"
 team:
   - name: "Michael Baylard"
-    role: "Data Scientist"
+    role: "AI Engineer / Data Scientist"
     avatar: "/images/avatar.jpg"
-    linkedIn: "https://www.linkedin.com/in/michaelbaylard"
+    linkedIn: "https://www.linkedin.com/in/michael-baylard/"
 ---
 
-## Overview
+## My Contribution
 
-Currently leading the development of FurrowVision, an advanced computer vision system for agricultural field analysis at John Deere's Intelligent Solutions Group (ISG A&A). As a Data Scientist on this cutting-edge project, I'm architecting end-to-end machine learning workflows that transform raw agricultural imagery into actionable insights, achieving industry-leading accuracy while revolutionizing annotation efficiency through innovative human-in-the-loop optimization.
+FurrowVision is a long-running John Deere Precision Agriculture program (5+ years). My 1.5-year engagement covered three workstreams: model accuracy and architecture, dataset engineering, and analytics infrastructure.
 
-## Key Achievements
+**Baseline going in**: F1 of 0.44 on the hardest classification classes, manual annotation pipeline, no systematic path from 38M-image corpus to training set.
 
-- **Computer Vision Dataset Engineering**: Architected end-to-end machine learning workflows, curating and annotating **10,000+ agricultural field images** while implementing automated feature extraction pipelines and ML model training standards for production-grade computer vision systems
-- **ML Infrastructure & Feature Engineering**: Designed relational schemas and automated ETL pipelines converting unstructured annotation data into feature-rich training datasets, enabling seamless model consumption and enabling advanced time-series analysis of model performance
-- **Deep Learning Model Development**: Co-developed and optimized PyTorch convolutional neural networks achieving **92% validation accuracy** for multi-class agronomic feature detection, implementing advanced data augmentation and GPU-accelerated training strategies for maximum model performance
-- **ML Operations & Workflow Optimization**: Revolutionized annotation workflows through automated feature detection and active learning protocols, **reducing per-image labeling time by 76%** (25+ seconds → 6 seconds) through intelligent model-assisted annotation and cutting total ML training costs by 80%
-- **Distributed Computing & Model Scaling**: Optimized PySpark machine learning pipelines processing **92M+ image/metadata records**, achieving **87.5% runtime reduction** (8 hours → 1 hour) through advanced distributed computing, model parallelization, and containerized ML workflows
+## Model & Architecture
 
-## Technical Architecture
+- **Architecture search**: Evaluated SwinTransformer, MobileNetV2, and EfficientNet-B0 against real-time latency SLAs on A10 GPU clusters. SwinTransformer was eliminated — parameter count made retraining costly and latency exceeded field requirements. MobileNetV2 and EfficientNet-B0 both cleared the SLA; EfficientNet-B0 edged accuracy, MobileNetV2 won on compression headroom for potential edge deployment.
+- **Result**: F1 lifted from **0.44 → 0.92** through iterative architecture evaluation combined with dataset curation below.
 
-- **Computer Vision Pipeline**: End-to-end PyTorch-based deep learning architecture for agronomic feature detection in field imagery
-- **Dataset Engineering**: Comprehensive data collection and curation workflows for agricultural computer vision training data
-- **Database Design**: Relational schema architecture optimized for CVML model consumption and historical analysis
-- **Annotation Platform**: SuperAnnotate integration with custom workflows for efficient human-in-the-loop validation
-- **Performance Optimization**: GPU-accelerated inference with optimized batching strategies for production deployment
+## Dataset Engineering
 
-## Technologies Used
+The corpus held **38M+ sensor images** across geographies, crop types, and lighting conditions. Prior training sets of 60,000+ images underperformed because they were built by class-label sampling, not semantic coverage.
 
-- **PyTorch**: Deep learning framework for computer vision model development and training
-- **PySpark**: Large-scale distributed computing for image and metadata processing (92M+ records)
-- **SuperAnnotate**: Advanced annotation platform with optimized human-in-the-loop workflows
-- **SQL/NoSQL**: Database design and extraction pipelines for annotation data transformation  
-- **Python**: Data cleaning, pipeline development, and model optimization
-- **GPU Computing**: Optimized batching and inference acceleration for production deployment
-- **Containerization**: Docker-based workflows for scalable data processing pipelines
+- **DINOv2 embedding curation**: Computed inter-sample distances across the full corpus via FiftyOne. Sampled by embedding-distance quartile to fill underrepresented regions of the visual space — not by label count.
+- **Hard-negative targeting**: Located the failure clusters (motion blur, edge ambiguity, partial occlusion) and concentrated annotation effort there, shrinking the false-negative tail without growing dataset size.
+- **Outcome**: ~15,000-image training set that outperformed all prior 60,000+ image sets. Post-handoff, CVML engineers added **4,000+ images** using the same embedding workflow — no data scientist required.
 
-## Innovation in Agricultural Computer Vision
+## Analytics Pipeline
 
-This project represents a significant advancement in agricultural technology, combining traditional computer vision techniques with novel approaches to data curation and annotation efficiency:
+Parallel workstream converting model outputs into business metrics:
 
-- **Domain-Specific Dataset Creation**: Developed specialized workflows for agricultural imagery that account for variable lighting, crop stages, and soil conditions
-- **Annotation Efficiency Breakthrough**: Achieved 76% reduction in annotation time through autonomous keypoint placement and refined tagging instructions
-- **Production-Scale Processing**: Engineered systems capable of processing 92M+ records with 87.5% performance improvement through optimization
-- **Model Accuracy**: Delivered 92% validation accuracy for complex agronomic feature detection in diverse field conditions
+- **7-table schema** from raw sensor telemetry → 1Hz aggregation → acre-level dashboard summaries
+- **17 system metrics** formally contracted with Systems Engineering, ensuring consistent interpretation across **300+ acre-class deployments**
+- **Brazil expansion**: Integrated a second sensor hardware variant and coordinate system without restructuring the core pipeline
+- **Delta Lake + Unity Catalog** on Databricks for full training-run lineage and reproducibility
 
-## Challenges and Solutions
+## Impact
 
-The primary challenge was creating a robust annotation system that could handle the complexity of agricultural imagery while maintaining high-quality labels. Agricultural scenes contain numerous variables that required innovative solutions:
+| Metric | Value |
+|--------|-------|
+| F1 improvement | 0.44 → 0.92 |
+| Revenue influenced | $82M+ FY23–24 |
+| Production deployments | 300+ acre-class units |
+| Post-handoff dataset growth | 4,000+ images (self-serve) |
+| Documentation assets | 13 (handoff cited as internal standard) |
 
-- **Variable Field Conditions**: Developed robust algorithms that handle diverse lighting, crop stages, and soil conditions
-- **Annotation Quality vs. Speed**: Created autonomous keypoint placement systems that maintain accuracy while dramatically reducing manual effort
-- **Scale and Performance**: Implemented advanced parallel computing strategies to process massive datasets efficiently
-- **Model Generalization**: Ensured models perform consistently across different geographic regions and crop types
+## Stack
 
-## Business Impact
-
-- **Industry-Leading Accuracy**: Achieved 92% accuracy on validation set for agronomic feature detection, setting new standards for agricultural computer vision
-- **Operational Efficiency**: Reduced annotation costs by 80% through 76% improvement in per-image processing time
-- **Scalable Infrastructure**: Created production-ready systems capable of processing millions of agricultural images
-- **Future-Ready Dataset**: Established a 10,000-image labeled corpus enabling future computer vision research and development
-- **Performance Optimization**: Delivered 87.5% runtime reduction for large-scale data processing pipelines
-
----
-
-This project demonstrates expertise in cutting-edge computer vision, large-scale data engineering, and production deployment of AI systems in the agricultural technology sector, representing the future of precision agriculture analytics.
+Python · PyTorch · TensorFlow/Keras · MobileNetV2 · EfficientNet-B0 · DINOv2 · FiftyOne · Databricks (Delta Lake · Unity Catalog · A10 GPU clusters) · PyCaret · OpenCV

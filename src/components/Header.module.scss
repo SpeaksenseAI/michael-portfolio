@@ -1,27 +1,123 @@
-@use "./breakpoints.scss" as breakpoints;
-
-.position {
-    position: sticky;
-    top: 0;
+.shell {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid var(--neutral-alpha-medium);
+  background: color-mix(in srgb, var(--page-background) 92%, #ffffff 8%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 }
 
-.mask {
-    pointer-events: none;
-    backdrop-filter: blur(0.5rem);
-    background: linear-gradient(to bottom, var(--page-background), var(--static-transparent));
-    mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
-    mask-size: 100% 100%;
+/* Dark mode: navy header with blue border glow */
+:global(html[data-theme="dark"]) .shell {
+  background: rgba(6, 16, 30, 0.88);
+  border-bottom-color: rgba(59, 130, 246, 0.22);
+  box-shadow:
+    0 1px 0 rgba(59, 130, 246, 0.15),
+    0 4px 24px rgba(0, 8, 32, 0.4);
 }
 
-@media (max-width: breakpoints.$s) {
-    .position {
-        top: auto;
-        position: fixed;
-        bottom: var(--static-space-24);
-    }
+.inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 
-    .mask {
-        transform: rotate(180deg);
-        bottom: 0;
-    }
+.brand {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navDesktop {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.ctaDesktop {
+  display: none;
+}
+
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--neutral-on-background-strong);
+  border-radius: var(--radius-m, 8px);
+}
+
+.burger:hover {
+  background: var(--neutral-alpha-weak);
+}
+
+@media (min-width: 769px) {
+  .navDesktop {
+    display: flex;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .ctaDesktop {
+    display: inline-flex;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  opacity: 0.88;
+  transition: opacity 0.15s ease;
+}
+
+.navLink:hover {
+  opacity: 1;
+}
+
+.navLinkActive {
+  opacity: 1;
+  color: var(--brand-on-background-strong, #1d4ed8);
+}
+
+.navLinkActive span {
+  color: inherit;
+}
+
+.rightCluster {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.mobilePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--neutral-alpha-medium);
+  background: var(--page-background);
+}
+
+:global(html[data-theme="dark"]) .mobilePanel {
+  background: #0a1628;
+  border-bottom-color: rgba(59, 130, 246, 0.2);
+}
+
+@media (min-width: 769px) {
+  .mobilePanel {
+    display: none !important;
+  }
 }

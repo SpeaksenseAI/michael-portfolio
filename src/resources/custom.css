@@ -1,106 +1,304 @@
-/* :root {
-  /*
-  /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
-  /*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+/* Editorial type (no rainbow gradients). Trust palette: blue brand + gray/white neutrals + orange accent (warm gold for CTAs). */
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
-
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
-
-/* Custom gradient styles for all headings */
-h1, h2, h3, h4, h5, h6,
-[data-tag="heading"],
-.variant-display-strong-xl,
-.variant-display-strong-l,
-.variant-display-strong-m,
-.variant-display-strong-s,
-.variant-heading-strong-xl,
-.variant-heading-strong-l,
-.variant-heading-strong-m,
-.variant-heading-strong-s,
-.gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ef4444 100%) !important;
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  display: inline-block !important;
-  width: fit-content !important;
-  max-width: 100% !important;
-  white-space: normal !important;
-  word-wrap: break-word !important;
-  line-height: 1.2 !important;
+html[data-theme="light"] {
+  color-scheme: light;
+  /* Cool gray canvas — aligns with Once UI page token where supported */
+  --page-background: #f1f5f9;
+  background-color: #f1f5f9;
 }
 
-/* Specific styling for the gradient text span */
-.gradient-text {
-  display: inline !important;
-  width: auto !important;
-  background-attachment: local !important;
-  background-size: 100% 100% !important;
-  box-decoration-break: clone !important;
-  -webkit-box-decoration-break: clone !important;
+/*
+  Elevated surfaces: pop off the page without loud color.
+  Use className="elevated-card" on Column/Flex shells (stats, skills, project cards, etc.).
+*/
+.elevated-card {
+  background: #ffffff !important;
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-medium) 85%, #0f172a 8%) !important;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 4px 16px rgba(15, 23, 42, 0.06);
 }
 
-/* Override flex container behavior that forces headings to expand */
+html[data-theme="light"] .elevated-card {
+  color: var(--neutral-on-background-strong, #0f172a);
+}
+
+.elevated-card:hover {
+  box-shadow:
+    0 2px 4px rgba(29, 78, 216, 0.06),
+    0 8px 24px rgba(29, 78, 216, 0.10);
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* ── DARK MODE: deep navy canvas ──────────────────────────────────────── */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-background: #06101e;
+  background-color: #06101e;
+}
+
+/* Dark cards — dark navy blue, not gray */
+html[data-theme="dark"] .elevated-card {
+  background: #0c1a30 !important;
+  border: 1px solid rgba(59, 130, 246, 0.18) !important;
+  box-shadow:
+    0 1px 3px rgba(0, 8, 32, 0.5),
+    0 4px 20px rgba(0, 8, 32, 0.4);
+}
+
+html[data-theme="dark"] .elevated-card:hover {
+  border-color: rgba(96, 165, 250, 0.35) !important;
+  box-shadow:
+    0 2px 8px rgba(59, 130, 246, 0.14),
+    0 8px 32px rgba(59, 130, 246, 0.18);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Dark mode — blue accent overrides (brighter blues on navy) */
+html[data-theme="dark"] .stat-value {
+  color: #93c5fd !important; /* blue-300 — vivid on dark navy */
+}
+
+html[data-theme="dark"] .section-heading {
+  border-left-color: #60a5fa; /* blue-400 */
+}
+
+html[data-theme="dark"] .hero-role-primary {
+  color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .hero-avatar-ring {
+  background: linear-gradient(135deg, #1d4ed8 0%, #60a5fa 60%, #93c5fd 100%);
+  box-shadow:
+    0 0 0 4px rgba(96, 165, 250, 0.2),
+    0 4px 28px rgba(59, 130, 246, 0.45);
+}
+
+html[data-theme="dark"] .step-badge {
+  background: #1e40af; /* blue-800 — rich on dark */
+}
+
+html[data-theme="dark"] .step-outcome {
+  color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .trusted-by-strip {
+  border-top-color: rgba(59, 130, 246, 0.15);
+  border-bottom-color: rgba(59, 130, 246, 0.15);
+}
+
+html[data-theme="dark"] .trusted-by-name {
+  color: #cbd5e1;
+  opacity: 0.55;
+}
+
+/* Dark mode — editorial links */
+.editorial-inline-link {
+  color: var(--brand-on-background-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.editorial-inline-link:hover {
+  opacity: 0.85;
+}
+
+/* Keep headings readable: inherit theme foreground (do not force gradient fills) */
 [data-tag="flex"] h1,
 [data-tag="flex"] h2,
 [data-tag="flex"] [data-tag="heading"] {
-  flex-shrink: 0 !important;
-  flex-grow: 0 !important;
-  flex-basis: auto !important;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
 }
 
-/* Target flex containers that contain headings */
 [data-tag="flex"]:has(h1),
 [data-tag="flex"]:has(h2),
 [data-tag="flex"]:has([data-tag="heading"]) {
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* =====================================================================
+   HERO AVATAR
+   ===================================================================== */
+.hero-avatar-ring {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15),
+    0 4px 20px rgba(29, 78, 216, 0.25);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--neutral-background-strong);
+}
+
+/* Primary role line in hero — pull it blue */
+.hero-role-primary {
+  color: var(--brand-on-background-strong, #1d4ed8) !important;
+  font-weight: 600;
+}
+
+/* =====================================================================
+   STAT NUMBERS — prominent blue
+   ===================================================================== */
+.stat-value {
+  color: var(--brand-on-background-strong, #1d4ed8) !important;
+}
+
+/* =====================================================================
+   SECTION HEADINGS — blue left-border accent
+   ===================================================================== */
+.section-heading {
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--brand-on-background-strong, #1d4ed8);
+}
+
+/* =====================================================================
+   HOW I HELP STEPS
+   ===================================================================== */
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--brand-background-strong, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-title {
+  color: var(--neutral-on-background-strong);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.step-outcome {
+  color: var(--brand-on-background-strong, #1d4ed8) !important;
+  font-style: italic;
+}
+
+/* =====================================================================
+   SKILLS / HOW I HELP — 2×2 balanced grid
+   ===================================================================== */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .grid-2x2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Remove default list bullets — using CSS list-style instead */
+.skill-bullet {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+/* =====================================================================
+   TRUSTED BY — horizontal text strip (no card box, like Lise)
+   ===================================================================== */
+.trusted-by-strip {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--neutral-alpha-weak);
+  border-bottom: 1px solid var(--neutral-alpha-weak);
+  text-align: center;
+}
+
+.trusted-by-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neutral-on-background-weak);
+}
+
+.trusted-by-logos {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.trusted-by-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--neutral-on-background-strong);
+  opacity: 0.65;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* =====================================================================
+   STAT NUMBERS — forced blue (override Once UI specificity)
+   ===================================================================== */
+html .stat-value,
+html[data-theme] .stat-value {
+  color: var(--brand-on-background-strong, #1d4ed8) !important;
+}
+
+/* Sticky header offset for in-page anchors (Lise-style nav) */
+#about-me,
+#skills,
+#certifications,
+#services,
+#projects {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Vertical rhythm between major home sections */
+.section-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-stack {
+    gap: 3rem;
+  }
+}
+
+.page-shell {
+  width: 100%;
+  max-width: min(72rem, 100%);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding-inline: 1.5rem;
+  }
 }

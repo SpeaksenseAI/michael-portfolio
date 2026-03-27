@@ -2,6 +2,7 @@
 export {
   person,
   social,
+  site,
   home,
   about,
   work,

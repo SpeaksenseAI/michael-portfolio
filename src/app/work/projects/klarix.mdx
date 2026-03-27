@@ -1,0 +1,79 @@
+---
+title: "Klarix — Multi-Model Agentic Research Pipeline"
+publishedAt: "2026-02-15"
+category: "Product"
+status: "Done"
+tags:
+  - "Agentic AI — LLMs"
+  - "Python"
+  - "Multi-model routing"
+  - "LLM Orchestration"
+summary: "Config-driven agentic pipeline orchestrating 6 LLM providers with cost-aware routing, 3-tier failover, and crash-safe checkpointing. Scored 17,700+ companies and 6,300+ contacts in under 3 hours. Powers Klarix's competitive intelligence deliverables — dossiers, SWOT, battlecards, and outreach sequences."
+images:
+  - "/images/projects/klarix/img1.png"
+  - "/images/projects/klarix/img2.png"
+  - "/images/projects/klarix/img3.png"
+team:
+  - name: "Michael Baylard"
+    role: "Founder & AI Pipeline Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/michael-baylard/"
+---
+
+## What Klarix Does
+
+Klarix delivers competitive intelligence as a service — per-company prospect dossiers, SWOT analyses, battlecards, and personalized outreach sequences for B2B sales and recruiting teams. Each engagement produces 100–400 research artifacts across 25–100 companies, delivered in 3–7 days.
+
+The pipeline is the product. Manual delivery at this depth and volume isn't possible without agentic automation.
+
+## Pipeline Architecture
+
+The core challenge: each research stage has different latency, cost, and quality tradeoffs. A single model can't handle all of them efficiently.
+
+Six providers are assigned by stage:
+
+| Stage | Model | Reason |
+|-------|-------|--------|
+| ICP scoring | MiniMax M2.7 Highspeed | Low cost, high throughput at 950 RPM |
+| Research synthesis | Gemini 3.1 Pro | Long context, multi-source summarization |
+| Outreach copy | Claude 4.5 Opus | Highest output quality for written deliverables |
+| Contact collection | Groq Compound + Llama 70B | Sub-second latency for structured extraction |
+| Deep research | Tavily | Real-time web retrieval |
+| Contact data | Apollo API | Verified email + firmographic enrichment |
+
+Cost-aware routing allocates the cheapest model that clears quality thresholds per stage — not the best model uniformly.
+
+## Reliability Engineering
+
+At 128 concurrent threads and 450–950 RPM across providers, partial failures are expected. Three systems prevent data loss:
+
+- **3-tier failover**: MiniMax → OpenRouter → Groq. Each tier activates automatically on rate-limit or API error, with no manual intervention.
+- **Append-under-lock JSONL checkpointing**: Every completed record is flushed to disk immediately. A crashed run resumes from the last checkpoint — not from scratch.
+- **Rate limit management**: Per-provider token budgets enforced at the thread pool level, preventing cascading failures when one provider degrades.
+
+## Output Quality
+
+Each run produces structured, source-cited deliverables per company:
+
+- **Prospect dossier**: Company overview, evidence-based pain points, buying triggers, decision-maker map with contact scores, personalized outreach hooks
+- **SWOT analysis**: Strengths, weaknesses, opportunities, threats with competitive context
+- **Battlecard**: Talk tracks, landmines, key contacts at competitors
+- **Outreach sequence**: LinkedIn + email, 3-touch cadence, objection handling, voicemail script
+- **Executive one-pager**: Compressed summary for leadership review
+
+[View a full sample deliverable (SaaS vertical, PDF)](/sample-saas.pdf) — prospect dossier on Bardeen: 7/10 ICP score, two co-founder contacts, full outreach sequence with CASA Tier 2/3 and PLG-to-enterprise positioning as the hook.
+
+## Impact
+
+| Metric | Value |
+|--------|-------|
+| Companies scored per run | 17,700+ |
+| Contacts enriched | 6,300+ |
+| Verified email rate | ~78% |
+| End-to-end runtime | < 3 hours |
+| Concurrent threads | 128 |
+| LLM providers orchestrated | 6 |
+
+## Stack
+
+Python · MiniMax M2.7 · Gemini 3.1 Pro · Claude 4.5 Opus · Groq Compound + Llama 70B · Tavily · Apollo API · Playwright · PyMuPDF

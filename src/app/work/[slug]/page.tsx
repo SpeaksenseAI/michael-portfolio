@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
 import { getPosts } from "@/app/utils/utils";
-import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Media, Text } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
+import { Meta, Schema, AvatarGroup, Button, Carousel, Column, Flex, Heading, Tag, Text } from "@once-ui-system/core";
+import { baseURL, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
-import { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -53,8 +52,11 @@ export default async function Project({
       src: person.avatar,
     })) || [];
 
+  const tagList =
+    post.metadata.tags?.length ? post.metadata.tags : [post.metadata.category].filter(Boolean) as string[];
+
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column as="section" maxWidth="l" horizontal="center" gap="24" fillWidth className="page-shell">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
@@ -68,25 +70,47 @@ export default async function Project({
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="xs" gap="16">
+      <Column fillWidth gap="16" maxWidth="m" horizontal="start">
         <Button data-border="rounded" href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projects
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+        {tagList.length > 0 && (
+          <Flex gap="8" wrap horizontal="start" vertical="center">
+            {tagList.map((t) => (
+              <Tag key={t} size="s">
+                {t}
+              </Tag>
+            ))}
+          </Flex>
+        )}
       </Column>
-      {post.metadata.images.length > 0 && (
-        <Media
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt={`${post.metadata.title} - Hero Image`}
-          src={post.metadata.images[0]}
-          style={{ objectFit: 'contain', backgroundColor: 'var(--neutral-background-strong)' }}
-        />
+      {post.metadata.images?.length > 0 && (
+        <Column fillWidth maxWidth="m">
+          <Carousel
+            aspectRatio="16 / 9"
+            indicator={post.metadata.images.length > 1 ? "line" : undefined}
+            items={post.metadata.images.map((src: string, i: number) => ({
+              slide: src,
+              alt: `${post.metadata.title} — image ${i + 1}`,
+            }))}
+          />
+        </Column>
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <Flex gap="12" marginBottom="24" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
+      <Column
+        as="article"
+        fillWidth
+        maxWidth="m"
+        padding="24"
+        gap="16"
+        radius="l"
+        className="elevated-card"
+        style={{ marginInline: "auto" }}
+      >
+        <Flex gap="12" marginBottom="8" vertical="center" wrap>
+          {post.metadata.team && post.metadata.team.length > 0 && (
+            <AvatarGroup reverse avatars={avatars} size="m" />
+          )}
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>

@@ -1,6 +1,6 @@
-import { Column, Meta, Schema } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
-import { Projects } from "@/components/work/Projects";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+import { baseURL, person, work } from "@/resources";
+import { FeaturedProjectGrid } from "@/components/home/FeaturedProjectGrid";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -14,7 +14,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m" gap="xl">
+    <Column maxWidth="l" gap="32" horizontal="center" fillWidth className="page-shell">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,7 +28,21 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Projects />
+      <Column
+        fillWidth
+        gap="12"
+        padding="24"
+        radius="l"
+        className="elevated-card"
+      >
+        <Heading as="h1" variant="display-strong-m">
+          Projects
+        </Heading>
+        <Text variant="body-default-m" onBackground="neutral-strong">
+          {work.description}
+        </Text>
+      </Column>
+      <FeaturedProjectGrid />
     </Column>
   );
 }

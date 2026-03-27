@@ -2,7 +2,7 @@
 
 A professional portfolio showcasing data science, machine learning, and analytics expertise.
 
-![Portfolio Preview](https://michael-portfolio.vercel.app/images/og/home.png)
+![Portfolio URL](https://michael-baylard.dev)
 
 ## **About Michael**
 

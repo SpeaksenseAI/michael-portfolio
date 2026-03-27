@@ -4,22 +4,26 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Data Scientist",
+  role: "AI Engineer",
   avatar: "/images/avatar.jpg",
-  email: "MichaelBaylard@gmail.com",
+  email: "baylardmichael@gmail.com",
   location: "America/Chicago", // Expecting the IANA time zone identifier
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
   linkedin: "https://www.linkedin.com/in/michael-baylard/",
+  github: "https://github.com/michaelbaylard",
   logo: "/images/projects/logo.png",
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: person.linkedin,
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: person.github,
   },
   {
     name: "Email",
@@ -29,36 +33,162 @@ const social = [
   {
     name: "Resume",
     icon: "document",
-    link: "/Michael Baylard - Resume.pdf",
+    link: "/resume_ai_engineer.pdf",
     target: "_blank",
   },
 ];
+
+/** Layout + nav (Lise Karimi–style shell — https://www.lisekarimi.com/) */
+const site = {
+  header: {
+    /** Lise-style: in-page sections on home + projects index */
+    nav: [
+      { label: "ABOUT", href: "/#about-me" },
+      { label: "SERVICES", href: "/#services" },
+      { label: "PROJECTS", href: "/work" },
+    ],
+    ctaLabel: "Download CV",
+  },
+  footer: {
+    tagline: "Shipping production AI that actually works.",
+    connectTitle: "Connect With Me",
+  },
+};
 
 const home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Transforming data into actionable insights and scalable solutions</>,
-  featured: {
-    display: true,
-    title: <>Featured project: <strong className="ml-4">FurrowVision Computer Vision System</strong></>,
-    href: "/work/furrowvision",
-  },
+  title: "Michael Baylard — AI Engineer",
+  description:
+    "AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Founder of Speaksense and Klarix.",
   subline: (
     <>
-      I&apos;m Michael, a Data Scientist with a B.S. in Computer Science from Bradley University. I specialize in machine learning, data engineering, and analytics
-      <br /> to create scalable solutions that drive business results and optimize complex systems.
+      AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Built two AI
+      products from zero — a multi-tenant RAG co-agent with streaming inference and a config-driven agentic pipeline
+      orchestrating 6 LLM providers. Deployed real-time classification across 38M+ sensor images on GPU clusters (F1 =
+      0.92) at John Deere. $82M+ measurable business impact.
     </>
   ),
+  /** Lise Karimi–style hero (https://www.lisekarimi.com/) */
+  roleLinePrimary: "AI Engineer & Founder",
+  roleLineSecondary: "Speaksense · Klarix",
+  heroTagline: (
+    <>
+      Turning LLMs and computer vision into production-ready AI systems with measurable business impact.
+    </>
+  ),
+  aboutMeTitle: "About Me",
+  aboutSnippet: (
+    <>
+      I help teams move from AI prototypes to products that stay up in production — clear architecture, solid data
+      models, and delivery that includes auth, billing, and observability. My work spans multi-tenant LLM platforms,
+      agentic pipelines, and large-scale computer vision.
+    </>
+  ),
+  stats: [
+    { value: "3+", label: "Years shipping production AI" },
+    { value: "2", label: "Products built 0→1" },
+    { value: "38M+", label: "Sensor images in production CV" },
+    { value: "$82M+", label: "Revenue influenced (analytics)" },
+  ],
+  terminal: [
+    {
+      input: "whoami",
+      output: "Michael Baylard — AI Engineer / Founder @ Speaksense, Klarix",
+    },
+    {
+      input: "mission",
+      output: "Ship production LLM and CV systems with measurable business impact.",
+    },
+    {
+      input: "stack",
+      output: "Next.js, Neon/pgvector, PyTorch, Vercel AI SDK, multi-agent tool-calling, Databricks",
+    },
+    { input: "mode", output: "Remote · Chicago, IL" },
+  ],
+  skillsDisplay: [
+    {
+      emoji: "🤖",
+      title: "Applied AI & LLM",
+      bullets: [
+        "Production RAG, English-to-SQL co-agents, streaming tool-calling",
+        "Multi-agent orchestration, MCP integrations, evaluation & quality gates",
+      ],
+    },
+    {
+      emoji: "🧠",
+      title: "ML & computer vision",
+      bullets: [
+        "PyTorch / TensorFlow, MobileNet & DINOv2, model compression, FiftyOne",
+        "Dataset curation at scale and self-serve ML platform handoffs",
+      ],
+    },
+    {
+      emoji: "⚙️",
+      title: "Platforms & data",
+      bullets: [
+        "PostgreSQL (pgvector, RLS), Delta Lake / Unity Catalog, GPU inference pipelines",
+        "Docker, CI/CD, observability-minded delivery",
+      ],
+    },
+    {
+      emoji: "🧩",
+      title: "Web & product",
+      bullets: [
+        "Next.js 15, React 19, TypeScript, Stripe billing, agency-scoped RBAC",
+        "End-to-end ownership from UI to API and schema design",
+      ],
+    },
+  ],
+  howIHelp: [
+    {
+      step: 1,
+      emoji: "💡",
+      title: "Plan",
+      description:
+        "Clarify problem, constraints, and success metrics — then design architecture (agents, data, APIs, and cost/latency tradeoffs).",
+      outcome: "A concrete build plan with scope, risks, and milestones.",
+    },
+    {
+      step: 2,
+      emoji: "🛠️",
+      title: "Build",
+      description:
+        "Implement end-to-end: models and pipelines, app surfaces, persistence, and integration with real providers.",
+      outcome: "Working software in production-like environments, not slide decks.",
+    },
+    {
+      step: 3,
+      emoji: "🚀",
+      title: "Ship",
+      description:
+        "Multi-tenancy, auth, billing, migrations, and the operational glue that makes AI usable by real users.",
+      outcome: "Reliable releases with clear rollback and ownership.",
+    },
+    {
+      step: 4,
+      emoji: "🔧",
+      title: "Improve",
+      description:
+        "Iterate on quality, cost, and throughput — documentation and handoffs so teams can move without bottlenecks.",
+      outcome: "Measurable improvement and sustainable maintenance.",
+    },
+  ],
+  skillsSectionTitle: "Skills",
+  howIHelpTitle: "How I Help",
+  featuredProjectsTitle: "Featured Projects",
+  trustedByTitle: "Experience",
+  /** Employer / client names (text strip — swap for logos later if you want) */
+  trustedByNames: ["John Deere", "RLI Insurance"],
 };
 
 const about = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from Chicago, IL`,
+  description:
+    "AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Founder of Speaksense and Klarix.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -68,140 +198,132 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://www.linkedin.com/in/michael-baylard/",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Data scientist with a strong foundation in data engineering, specializing in the design, optimization, and deployment of scalable analytics solutions. 
-        Experienced in delivering high-impact data products within the enterprise aftermarket division at John Deere, with a focus on precision upgrade analytics, 
-        warranty forecasting, and dealer insights. Technical expertise includes Databricks, PySpark, Delta Lake, Power BI, and large-scale ETL workflows 
-        supporting 100M+ row transformations.
+        AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Built two AI
+        products from zero — a multi-tenant RAG co-agent with streaming inference and a config-driven agentic pipeline
+        orchestrating 6 LLM providers. Deployed real-time classification across 38M+ sensor images on GPU clusters (F1 =
+        0.92) at John Deere. $82M+ measurable business impact.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "John Deere",
-        timeframe: "2024 - Present",
-        role: "Data Scientist - ISG A&A FurrowVision",
-        achievements: [
-          <>
-            Architected end-to-end machine learning workflows, curating and annotating 10,000+ 
-            agricultural field images while implementing automated feature extraction pipelines 
-            for production-grade computer vision systems.
-          </>,
-          <>
-            Co-developed PyTorch convolutional neural networks achieving 92% validation accuracy 
-            for multi-class agronomic feature detection with advanced data augmentation and 
-            GPU-accelerated training strategies.
-          </>,
-          <>
-            Revolutionized annotation workflows through automated feature detection and active 
-            learning protocols, reducing per-image labeling time by 76% through intelligent 
-            model-assisted annotation.
-          </>,
-          <>
-            Optimized PySpark machine learning pipelines processing 92M+ image/metadata records, 
-            achieving 87.5% runtime reduction through distributed computing and model parallelization.
-          </>,
-        ],
-        images: [],
-      },
-      {
         company: "Speaksense",
-        timeframe: "2023 - Present",
-        role: "Founder & Full-Stack Data Scientist",
+        timeframe: "2024 – Present",
+        role: "Founder & AI Engineer",
         achievements: [
           <>
-            Built Next.js/React streaming analytics platform with Vercel AI SDK integration, 
-            achieving sub-2-second response times and processing 1M+ weekly records.
+            Architected production RAG system with English-to-SQL co-agent — parallel tool-calling synthesizes
+            multi-channel analytics in real time via streaming inference (Vercel AI SDK v5) with persistent chat memory.
           </>,
           <>
-            Engineered high-performance batch and parallel ingestion systems for YouTube metrics, 
-            delivering 90% processing speed improvement for large-scale analytics workloads.
+            Built multi-tenant AI platform: 35+ PostgreSQL tables, agency-scoped RBAC (JSONB permissions), pgvector
+            embeddings for semantic search, Stripe subscription billing with webhook-driven plan management.
           </>,
           <>
-            Implemented cost-effective GPT-4.1 API with Zod-validated SQL tool-calling system, 
-            providing personalized analytics at ~$1 per 1,000 queries through optimized 
-            prompt engineering.
+            Registered 8 AI tools in agentic orchestration layer: channel analysis, natural language SQL generation,
+            thumbnail evaluation, competitor intelligence, image generation, community trend analysis.
           </>,
           <>
-            Developed interactive D3.js and Tremor chart systems with custom tooltips for 
-            time-series analysis of engagement metrics and CTR optimization.
+            Integrated 6 MCP servers for automated documentation, database queries, and git workflows — 10x development
+            velocity.
+          </>,
+          <>
+            <em>
+              Stack: Next.js 15, React 19, TypeScript, Neon PostgreSQL (pgvector), OpenAI GPT-4, Vercel AI SDK v5,
+              Stripe, Docker
+            </em>
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Klarix",
+        timeframe: "2026 – Present",
+        role: "Founder & AI Pipeline Engineer",
+        achievements: [
+          <>
+            Architected config-driven agentic pipeline orchestrating 6 LLM providers with cost-optimized model
+            allocation: MiniMax M2.7 Highspeed (ICP scoring), Gemini 3.1 Pro (research synthesis), Claude 4.5 Opus
+            (outreach generation), Groq Compound + Llama 70B (information collection), Tavily (deep research).
+          </>,
+          <>
+            Engineered multi-tier failover (MiniMax → OpenRouter → Groq), rate limiting (450–950 RPM), auto-scaling
+            workers up to 128 threads, and crash-safe incremental JSONL processing with thread-safe append-under-lock.
+          </>,
+          <>
+            Scored 17,700+ companies and 6,300+ contacts via multi-stage AI enrichment; 78% verified email rate; full
+            pipeline completes in under 3 hours — weeks of manual research compressed to same-day delivery.
+          </>,
+          <>
+            <em>
+              Stack: Python, MiniMax M2.7, Gemini 3.1 Pro, Claude 4.5 Opus, Groq Compound + Llama 70B, Tavily, Apollo
+              API, Playwright, PyMuPDF
+            </em>
           </>,
         ],
         images: [],
       },
       {
         company: "John Deere",
-        timeframe: "2023 - 2024",
-        role: "Data Engineer - Aftermarket & Customer Sales",
+        timeframe: "2023 – 2026",
+        role: "AI Engineer / Data Scientist",
         achievements: [
           <>
-            Architected PySpark-based recommendation engines processing 500K+ machine records, 
-            implementing advanced feature engineering and model deployment pipelines for 
-            scalable eCommerce integration.
+            Deployed real-time classification pipeline on A10 GPU clusters processing 38M+ sensor images — F1 improved
+            from 0.44 to 0.92 through 8 months of iterative dataset curation, model compression (SwinTransformer →
+            MobileNetV2), and DINOv2 embedding-based expansion.
           </>,
           <>
-            Engineered machine learning models for PowerGard and JDProtect eligibility prediction, 
-            applying statistical analysis and clustering algorithms to categorize 654K machines 
-            by lifecycle patterns, enabling $107K in dealer reimbursements.
+            Curated 15,000-image training dataset from 38M+ corpus using embedding distance — engineered self-serve
+            workflow enabling 4,000+ images added post-handoff without data science involvement.
           </>,
           <>
-            Developed sophisticated data science solutions and mentored enterprise teams on 
-            advanced analytics techniques, leading cross-functional initiatives and resolving 
-            complex statistical modeling challenges.
+            Built 7-table real-time analytics backend (raw telemetry → 1Hz aggregation → dashboard-ready) powering field
+            operations across 300+ acre deployments.
           </>,
           <>
-            Delivered predictive analytics and recommendation systems contributing $52M+ in revenue 
-            across precision agriculture, warranty, and aftermarket segments through data-driven 
-            machine learning approaches.
-          </>,
-        ],
-        images: [],
-      },
-      {
-        company: "John Deere",
-        timeframe: "2022 - 2023",
-        role: "BI Analyst - John Deere Financial",
-        achievements: [
-          <>
-            Optimized Power BI reporting by converting queries to native Databricks API, 
-            reducing refresh times from 5-10 minutes to 20 seconds.
+            Defined 17 system metrics with Systems Engineering — the specification contract consumed by all downstream
+            analytics and engineering teams.
           </>,
           <>
-            Developed operational analytics dashboards replacing manual processes with 
-            automated daily-refreshed Power BI reports.
+            Delivered zero-follow-up platform handoff — 13 documentation files enabling full CVML self-service;
+            praised for &quot;extensive documentation&quot;.
           </>,
           <>
-            Created JDF Mid-Market and Credit Lens dashboards showcased at leadership meetings 
-            for strategic decision-making.
+            Analytics influenced $82M+ revenue across FY23–24; integrated international (Brazil) sensor data without
+            re-engineering.
+          </>,
+          <>
+            <em>
+              Stack: Python, PyTorch, TensorFlow/Keras, MobileNet, DINOv2, FiftyOne, Databricks (Delta Lake, Unity
+              Catalog, GPU clusters), PyCaret, OpenCV
+            </em>
           </>,
         ],
         images: [],
       },
       {
         company: "RLI Insurance Company",
-        timeframe: "2021 - 2022",
+        timeframe: "2021 – 2022",
         role: "Data Engineer Intern",
         achievements: [
           <>
-            Modernized enterprise analytics infrastructure, designing dimensional data models 
-            and implementing SQL-based transformations for underwriting and risk reporting.
+            Modernized enterprise analytics infrastructure, designing dimensional data models and implementing SQL-based
+            transformations for underwriting and risk reporting.
           </>,
           <>
-            Optimized ETL processes achieving 70% reduction in refresh times while enabling 
-            near real-time analytics capabilities.
-          </>,
-          <>
-            Collaborated with business stakeholders to align technical solutions with compliance 
-            and operational requirements.
+            Optimized ETL processes achieving 70% reduction in refresh times while enabling near real-time analytics
+            capabilities.
           </>,
         ],
         images: [],
@@ -209,32 +331,66 @@ const about = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
         name: "Bradley University",
-        description: <>Bachelor of Science in Computer Science - Data Science & Cybersecurity, graduated May 2022. GPA: 3.62</>,
+        description: (
+          <>
+            Bachelor of Science in Computer Science - Data Science &amp; Cybersecurity, graduated May 2022. GPA: 3.62
+          </>
+        ),
+      },
+      {
+        name: "Certifications",
+        description: <>Microsoft Certified: Power BI Data Analyst Associate</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Data Science & Machine Learning",
-        description: <>Expert in PyTorch, computer vision, natural language processing, statistical analysis, and predictive modeling with production deployment experience.</>,
+        title: "AI / LLM",
+        description: (
+          <>
+            RAG (pgvector, vector search), OpenAI GPT-4, Anthropic Claude, Vercel AI SDK v5, agentic orchestration (MCP
+            servers, LangChain, parallel tool-calling), prompt engineering, LLM evaluation, English-to-SQL, streaming
+            inference.
+          </>
+        ),
         images: [],
       },
       {
-        title: "Data Engineering & Analytics",
-        description: <>Proficient in PySpark, Databricks, Delta Lake, SQL, ETL pipelines, and large-scale data processing with enterprise-grade solutions.</>,
+        title: "ML / Computer Vision",
+        description: (
+          <>
+            PyTorch, TensorFlow/Keras, MobileNet, EfficientNet, SwinTransformer, DINOv2, model compression, FiftyOne,
+            MLflow, scikit-learn, OpenCV.
+          </>
+        ),
         images: [],
       },
       {
-        title: "Cloud & Development",
-        description: <>Experienced in GCP, Docker, GitHub Actions CI/CD, Next.js, PostgreSQL, and full-stack development for data-driven applications.</>,
+        title: "Infrastructure & Data",
+        description: (
+          <>
+            GPU clusters (A10/g5), Databricks (Delta Lake, Unity Catalog), PostgreSQL (Neon — pgvector, RLS, JSONB),
+            Docker, CI/CD (GitHub Actions), AWS, Vercel.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Languages",
+        description: <>Python, TypeScript/JavaScript, SQL, Bash.</>,
+        images: [],
+      },
+      {
+        title: "Web / Product",
+        description: <>Next.js 15, React 19, Tailwind CSS, shadcn/ui, Stripe, FastAPI.</>,
         images: [],
       },
     ],
@@ -245,95 +401,66 @@ const work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Data science and engineering projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/work/projects
-  // All projects will be listed on the /home and /work routes
+  description: `Production AI systems and case studies by ${person.name} — Speaksense, Klarix, and FurrowVision.`,
 };
 
 const gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `Project Gallery – ${person.name}`,
-  description: `A showcase of data science work and project visuals by ${person.name}`,
-  // Images from work projects showcasing data science process and outcomes
+  description: `Visuals from Speaksense, Klarix, and FurrowVision — production AI and computer vision work.`,
   images: [
-    // Randomized order of all project images - all 16x9 horizontal format
     {
-      src: "/images/projects/jolt/img3.png",
-      alt: "FurrowVision computer vision model training results",
+      src: "/images/projects/speaksense/img1.png",
+      alt: "Speaksense co-agent chat and analytics",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img1.png",
-      alt: "John Deere aftermarket recommendations dashboard",
+      src: "/images/projects/speaksense/img2.png",
+      alt: "Speaksense agency dashboard",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img2.png",
-      alt: "RLI Insurance analytics pipeline architecture",
+      src: "/images/projects/speaksense/img3.png",
+      alt: "Speaksense tool-calling and AI UI",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/jolt/img5.png",
-      alt: "Agricultural field image annotation workflow",
+      src: "/images/projects/klarix/img1.png",
+      alt: "Klarix competitive intelligence platform",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img4.png",
-      alt: "PySpark data processing performance metrics",
+      src: "/images/projects/klarix/img2.png",
+      alt: "Klarix prospect dossier deliverable",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img1.png",
-      alt: "Insurance data warehouse dimensional model",
+      src: "/images/projects/furrowvision/img1.jpg",
+      alt: "FurrowVision field hardware and trade show",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/jolt/img1.png",
-      alt: "Computer vision model accuracy validation",
+      src: "/images/projects/furrowvision/img2.jpg",
+      alt: "FurrowVision sensor and deployment",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/caterpillar/img3.png",
-      alt: "Machine learning pipeline deployment",
+      src: "/images/projects/furrowvision/img3.jpg",
+      alt: "FurrowVision computer vision in the field",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/pekin/img5.png",
-      alt: "ETL performance optimization results",
+      src: "/images/projects/furrowvision/img4.jpg",
+      alt: "FurrowVision precision agriculture imagery",
       orientation: "horizontal",
     },
     {
-      src: "/images/projects/jolt/img2.png",
-      alt: "Speaksense analytics platform interface",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/caterpillar/img2.png",
-      alt: "Revenue impact analytics dashboard",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/pekin/img4.png",
-      alt: "Real-time data streaming architecture",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/jolt/img4.png",
-      alt: "Machine learning model inference optimization",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/caterpillar/img5.png",
-      alt: "Data science project outcome visualization",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/projects/pekin/img3.png",
-      alt: "Enterprise analytics infrastructure design",
+      src: "/images/projects/furrowvision/img5.jpg",
+      alt: "FurrowVision system overview",
       orientation: "horizontal",
     },
   ],
 };
 
-export { person, social, home, about, work, gallery };
+export { person, social, site, home, about, work, gallery };

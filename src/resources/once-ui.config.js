@@ -1,7 +1,7 @@
-import { home } from "./content";
+import { home, person } from "./content";
 
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.magic-portfolio.com";
+// Production site URL — used for SEO meta tags and schema
+const baseURL = "https://michael-baylard.dev";
 
 const routes = {
   "/": true,
@@ -21,37 +21,37 @@ const display = {
 // Set password in the .env file, refer to .env.example
 const protectedRoutes = {
   "/work/furrowvision": false,
-  "/work/aftermarket": false,
-  "/work/rli": false,
   "/work/speaksense": false,
+  "/work/klarix": false,
 };
 
-// Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+// Import and set font for each variant — editorial, content-first (similar to jonathanc.net)
+import { DM_Sans, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 
-const heading = Geist({
+const heading = Source_Serif_4({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Geist({
+const body = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const label = Geist({
+const label = DM_Sans({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
 });
 
-const code = Geist_Mono({
+const code = IBM_Plex_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
+  // Required for next/font (Turbopack): IBM Plex Mono is not a single default weight
+  weight: ["400", "500", "600", "700"],
 });
 
 const fonts = {
@@ -62,21 +62,22 @@ const fonts = {
 };
 
 // default customization applied to the HTML in the main layout.tsx
+// Trust-forward palette: blue + white/gray surfaces; warm accent (orange) = gold-adjacent highlights
 const style = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  solid: "contrast", // color | contrast
-  solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
-  scaling: "100" // 90 | 95 | 100 | 105 | 110
+  theme: "light",
+  neutral: "gray",
+  brand: "blue",
+  accent: "orange",
+  solid: "contrast",
+  solidStyle: "flat",
+  border: "conservative",
+  surface: "filled",
+  transition: "micro",
+  scaling: "100",
 };
 
 const dataStyle = {
-  variant: "gradient", // flat | gradient | outline
+  variant: "flat",
   mode: "categorical", // categorical | divergent | sequential
   height: 24, // default chart height
   axis: {
@@ -108,7 +109,7 @@ const effects = {
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
+    display: false,
     opacity: 40,
     size: "2",
     color: "brand-background-strong",
@@ -178,16 +179,15 @@ const mailchimp = {
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "Michael Baylard",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "",
 };
 
-// social links
+// Social profiles for schema (sameAs)
 const sameAs = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  linkedin: person.linkedin,
+  github: person.github,
 };
 
 export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle };
