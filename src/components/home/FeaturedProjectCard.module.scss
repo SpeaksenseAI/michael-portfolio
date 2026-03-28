@@ -1,7 +1,6 @@
 .imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
   cursor: pointer;
@@ -13,6 +12,11 @@
 }
 
 .image {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 

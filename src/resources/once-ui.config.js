@@ -25,24 +25,32 @@ const protectedRoutes = {
   "/work/klarix": false,
 };
 
-// Import and set font for each variant — editorial, content-first (similar to jonathanc.net)
-import { DM_Sans, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono } from "next/font/google";
 
-const heading = Source_Serif_4({
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const heading = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
-const body = DM_Sans({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const label = DM_Sans({
+const label = Inter({
   variable: "--font-label",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -50,7 +58,6 @@ const code = IBM_Plex_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
-  // Required for next/font (Turbopack): IBM Plex Mono is not a single default weight
   weight: ["400", "500", "600", "700"],
 });
 

@@ -33,7 +33,7 @@ export function FeaturedProjectCard({
       className="elevated-card"
       style={{ flexGrow: 1, minWidth: "min(100%, 17rem)", maxWidth: "24rem" }}
     >
-      <SmartLink href={href} style={{ display: "block", textDecoration: "none" }}>
+      <SmartLink href={href} style={{ display: "block", width: "100%", textDecoration: "none" }}>
         <div className={styles.imageWrap}>
           {status && (
             <div className={styles.status}>
@@ -43,7 +43,8 @@ export function FeaturedProjectCard({
           <Image
             src={image}
             alt={title}
-            fill
+            width={640}
+            height={360}
             className={styles.image}
             sizes="(max-width: 768px) 100vw, 360px"
             priority={priority}
