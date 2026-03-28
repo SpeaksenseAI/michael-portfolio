@@ -154,7 +154,7 @@ export default function Home() {
             <Column
               key={block.title}
               padding="20"
-              gap="12"
+              gap="8"
               radius="l"
               className="elevated-card"
             >
@@ -164,7 +164,7 @@ export default function Home() {
                   {block.title}
                 </Heading>
               </Flex>
-              <Column as="ul" gap="12">
+              <Column as="ul" gap="8">
                 {block.bullets.map((line) => (
                   <Text
                     as="li"
