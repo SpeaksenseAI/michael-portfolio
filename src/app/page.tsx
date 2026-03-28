@@ -158,8 +158,8 @@ export default function Home() {
               radius="l"
               className="elevated-card"
             >
-              <Flex gap="10" vertical="center">
-                <Text variant="heading-strong-l" style={{ lineHeight: 1 }}>{block.emoji}</Text>
+              <Flex gap="16" vertical="center">
+                <Text variant="heading-strong-l" style={{ lineHeight: 1, flexShrink: 0 }}>{block.emoji}</Text>
                 <Heading as="h3" variant="heading-strong-m">
                   {block.title}
                 </Heading>
