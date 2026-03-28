@@ -213,10 +213,10 @@ html[data-theme="dark"] .trusted-by-name {
   }
 }
 
-/* Remove default list bullets — using CSS list-style instead */
 .skill-bullet {
   list-style: disc;
-  list-style-position: inside;
+  list-style-position: outside;
+  margin-left: 1.25rem;
 }
 
 /* =====================================================================

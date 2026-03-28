@@ -158,11 +158,13 @@ export default function Home() {
               radius="l"
               className="elevated-card"
             >
-              <Text variant="heading-strong-l">{block.emoji}</Text>
-              <Heading as="h3" variant="heading-strong-m">
-                {block.title}
-              </Heading>
-              <Column as="ul" gap="12" marginTop="4">
+              <Flex gap="10" vertical="center">
+                <Text variant="heading-strong-l" style={{ lineHeight: 1 }}>{block.emoji}</Text>
+                <Heading as="h3" variant="heading-strong-m">
+                  {block.title}
+                </Heading>
+              </Flex>
+              <Column as="ul" gap="12">
                 {block.bullets.map((line) => (
                   <Text
                     as="li"
