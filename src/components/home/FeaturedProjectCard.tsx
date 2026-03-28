@@ -33,21 +33,23 @@ export function FeaturedProjectCard({
       className="elevated-card"
       style={{ flexGrow: 1, minWidth: "min(100%, 17rem)", maxWidth: "24rem" }}
     >
-      <div className={styles.imageWrap}>
-        {status && (
-          <div className={styles.status}>
-            <Tag size="s">{status}</Tag>
-          </div>
-        )}
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className={styles.image}
-          sizes="(max-width: 768px) 100vw, 360px"
-          priority={priority}
-        />
-      </div>
+      <SmartLink href={href} style={{ display: "block", textDecoration: "none" }}>
+        <div className={styles.imageWrap}>
+          {status && (
+            <div className={styles.status}>
+              <Tag size="s">{status}</Tag>
+            </div>
+          )}
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className={styles.image}
+            sizes="(max-width: 768px) 100vw, 360px"
+            priority={priority}
+          />
+        </div>
+      </SmartLink>
       <Column padding="20" gap="12" fillWidth>
         <Flex wrap gap="8">
           {tags.slice(0, 5).map((t) => (

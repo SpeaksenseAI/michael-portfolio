@@ -1,6 +1,12 @@
 .embla {
   overflow: hidden;
-  border-radius: 0.75rem; /* Matches Once UI border radius */
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 }
 
 .emblaContainer {

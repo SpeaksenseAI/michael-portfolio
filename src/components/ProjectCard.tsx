@@ -49,24 +49,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <Column fillWidth gap="m">
-      <div className={styles.embla} ref={emblaRef}>
-        <div className={styles.emblaContainer}>
-          {images.map((image, index) => (
-            <div className={styles.emblaSlide} key={index}>
-              <Image
-                src={image}
-                alt={`${title} - Image ${index + 1}`}
-                className={styles.emblaSlideImg}
-                width={960}
-                height={540}
-                sizes="(max-width: 960px) 100vw, 960px"
-                quality={85}
-                priority={index === 0}
-              />
-            </div>
-          ))}
+      <SmartLink href={href} style={{ display: "block", textDecoration: "none" }}>
+        <div className={styles.embla} ref={emblaRef}>
+          <div className={styles.emblaContainer}>
+            {images.map((image, index) => (
+              <div className={styles.emblaSlide} key={index}>
+                <Image
+                  src={image}
+                  alt={`${title} - Image ${index + 1}`}
+                  className={styles.emblaSlideImg}
+                  width={960}
+                  height={540}
+                  sizes="(max-width: 960px) 100vw, 960px"
+                  quality={85}
+                  priority={index === 0}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </SmartLink>
       <Flex
         mobileDirection="column"
         fillWidth

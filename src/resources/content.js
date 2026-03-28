@@ -4,7 +4,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "AI Engineer",
+  role: "AI & ML Engineer",
   avatar: "/images/avatar.jpg",
   email: "baylardmichael@gmail.com",
   location: "America/Chicago", // Expecting the IANA time zone identifier
@@ -19,11 +19,6 @@ const social = [
     name: "LinkedIn",
     icon: "linkedin",
     link: person.linkedin,
-  },
-  {
-    name: "GitHub",
-    icon: "github",
-    link: person.github,
   },
   {
     name: "Email",
@@ -59,19 +54,19 @@ const home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: "Michael Baylard — AI Engineer",
+  title: "Michael Baylard — AI & ML Engineer",
   description:
-    "AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Founder of Speaksense and Klarix.",
+    "Senior AI & ML Engineer with 3+ years shipping production AI systems at scale. Founded two AI products. $82M+ measurable business impact.",
   subline: (
     <>
-      AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Built two AI
-      products from zero — a multi-tenant RAG co-agent with streaming inference and a config-driven agentic pipeline
-      orchestrating 6 LLM providers. Deployed real-time classification across 38M+ sensor images on GPU clusters (F1 =
-      0.92) at John Deere. $82M+ measurable business impact.
+      Senior AI & ML Engineer with 3+ years shipping production AI systems at scale. Built production RAG pipelines
+      with vector search, multi-agent orchestration with parallel tool-calling, and real-time classification pipelines
+      processing 38M+ images on GPU clusters. Founded two AI products from zero. Engineered production data pipelines
+      across billion-row datasets and forecast models achieving company-best MAPE. $82M+ measurable business impact.
     </>
   ),
   /** Lise Karimi–style hero (https://www.lisekarimi.com/) */
-  roleLinePrimary: "AI Engineer & Founder",
+  roleLinePrimary: "AI & ML Engineer · Founder",
   roleLineSecondary: "Speaksense · Klarix",
   heroTagline: (
     <>
@@ -188,7 +183,7 @@ const about = {
   label: "About",
   title: `About – ${person.name}`,
   description:
-    "AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Founder of Speaksense and Klarix.",
+    "Senior AI & ML Engineer with 3+ years shipping production AI systems at scale. Founded Speaksense and Klarix.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -205,10 +200,12 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        AI Engineer shipping production LLM systems, multi-agent pipelines, and computer vision at scale. Built two AI
-        products from zero — a multi-tenant RAG co-agent with streaming inference and a config-driven agentic pipeline
-        orchestrating 6 LLM providers. Deployed real-time classification across 38M+ sensor images on GPU clusters (F1 =
-        0.92) at John Deere. $82M+ measurable business impact.
+        Senior AI & ML Engineer with 3+ years shipping production AI systems at scale. Built production RAG pipelines
+        with vector search (pgvector), multi-agent orchestration with parallel tool-calling, and real-time classification
+        pipelines processing 38M+ images on GPU clusters (A10). Founded two AI products: a multi-tenant LLM co-agent
+        with streaming inference and a config-driven agentic pipeline orchestrating 6 LLM providers with cost-optimized
+        model allocation and multi-tier failover. Engineered production data pipelines across billion-row datasets and
+        forecast models achieving company-best MAPE. $82M+ measurable business impact.
       </>
     ),
   },
@@ -252,22 +249,40 @@ const about = {
         role: "Founder & AI Pipeline Engineer",
         achievements: [
           <>
-            Architected config-driven agentic pipeline orchestrating 6 LLM providers with cost-optimized model
-            allocation: MiniMax M2.7 Highspeed (ICP scoring), Gemini 3.1 Pro (research synthesis), Claude 4.5 Opus
-            (outreach generation), Groq Compound + Llama 70B (information collection), Tavily (deep research).
+            Architected 4-phase DAG pipeline (Score → Research → Generate → Deliver) orchestrating 14+ Python scripts
+            with 3 parallel execution tracks — config-driven multi-client architecture via context.json and YAML configs.
           </>,
           <>
-            Engineered multi-tier failover (MiniMax → OpenRouter → Groq), rate limiting (450–950 RPM), auto-scaling
-            workers up to 128 threads, and crash-safe incremental JSONL processing with thread-safe append-under-lock.
+            Integrated 7 API providers with cost-optimized model allocation: MiniMax M2.7 (ICP scoring, contact ranking),
+            Gemini 3.1 Pro (research synthesis, SWOT, battle cards), Claude 4.5 Opus (outreach), Groq Compound + Llama
+            70B (dossier research), Tavily (deep web research), Apollo (contacts), OpenRouter (failover routing).
           </>,
           <>
-            Scored 17,700+ companies and 6,300+ contacts via multi-stage AI enrichment; 78% verified email rate; full
-            pipeline completes in under 3 hours — weeks of manual research compressed to same-day delivery.
+            Enforced structured JSON outputs across all stages — schema-driven prompts with multi-tier parse fallback
+            (direct → code block extraction → trailing comma repair → regex). Gemini native JSON mode for guaranteed
+            structured output.
+          </>,
+          <>
+            Engineered multi-tier failover (MiniMax → OpenRouter → Groq), per-API rate limiting (450–950 RPM),
+            ThreadPoolExecutor parallelism (5–50 workers), and crash-safe incremental JSONL processing with
+            append-under-lock.
+          </>,
+          <>
+            Implemented incremental result caching and lead deduplication (domain normalization + email dedup) — reducing
+            API costs 60–80% for repeat client pipelines.
+          </>,
+          <>
+            Generated 7 AI-synthesized deliverable types per prospect: dossiers, SWOT, battle cards, one-pagers,
+            outreach sequences, market overviews, event triggers — branded PDF bundling (Playwright) + merge (PyMuPDF).
+          </>,
+          <>
+            AI quality gate with automated review scoring before client handoff — 17,700+ companies and 6,300+ contacts
+            scored; 78% verified email rate; full pipeline in under 3 hours (was weeks).
           </>,
           <>
             <em>
               Stack: Python, MiniMax M2.7, Gemini 3.1 Pro, Claude 4.5 Opus, Groq Compound + Llama 70B, Tavily, Apollo
-              API, Playwright, PyMuPDF
+              API, OpenRouter, Playwright, PyMuPDF
             </em>
           </>,
         ],
@@ -275,38 +290,47 @@ const about = {
       },
       {
         company: "John Deere",
-        timeframe: "2023 – 2026",
-        role: "AI Engineer / Data Scientist",
+        timeframe: "2023 – Present",
+        role: "AI Engineer / ML Engineer / Data Scientist",
         achievements: [
           <>
             Deployed real-time classification pipeline on A10 GPU clusters processing 38M+ sensor images — F1 improved
             from 0.44 to 0.92 through 8 months of iterative dataset curation, model compression (SwinTransformer →
-            MobileNetV2), and DINOv2 embedding-based expansion.
+            MobileNetV2/EfficientNet-B0), and DINOv2 embedding-based expansion.
           </>,
           <>
             Curated 15,000-image training dataset from 38M+ corpus using embedding distance — engineered self-serve
             workflow enabling 4,000+ images added post-handoff without data science involvement.
           </>,
           <>
+            Engineered self-serve dataset curation workflow — labeling throughput improved 3–5x (SuperAnnotate → FiftyOne
+            migration); engineering team operates independently post-handoff.
+          </>,
+          <>
             Built 7-table real-time analytics backend (raw telemetry → 1Hz aggregation → dashboard-ready) powering field
             operations across 300+ acre deployments.
           </>,
           <>
-            Defined 17 system metrics with Systems Engineering — the specification contract consumed by all downstream
-            analytics and engineering teams.
+            Documented 76+ table schemas across 5 databases — Unity Catalog generators, partition strategies, data
+            lineage; identified 1B-row table with zero partitioning and flagged 130M-row and 42M-row tables for
+            remediation.
+          </>,
+          <>
+            Built used-equipment forecast models achieving company-best MAPE across 7 product lines (PyCaret, Auto ARIMA)
+            — informed pricing and stocking decisions.
+          </>,
+          <>
+            Analytics influenced $82M+ revenue across FY23–24; defined 17 system metrics with Systems Engineering
+            consumed by all downstream teams. Integrated international (Brazil) sensor data without re-engineering.
           </>,
           <>
             Delivered zero-follow-up platform handoff — 13 documentation files enabling full CVML self-service;
             praised for &quot;extensive documentation&quot;.
           </>,
           <>
-            Analytics influenced $82M+ revenue across FY23–24; integrated international (Brazil) sensor data without
-            re-engineering.
-          </>,
-          <>
             <em>
-              Stack: Python, PyTorch, TensorFlow/Keras, MobileNet, DINOv2, FiftyOne, Databricks (Delta Lake, Unity
-              Catalog, GPU clusters), PyCaret, OpenCV
+              Stack: Python, PyTorch, TensorFlow/Keras, MobileNet, EfficientNet, DINOv2, FiftyOne, Databricks (Delta
+              Lake, Unity Catalog, GPU clusters), PyCaret, OpenCV
             </em>
           </>,
         ],
@@ -356,9 +380,20 @@ const about = {
         title: "AI / LLM",
         description: (
           <>
-            RAG (pgvector, vector search), OpenAI GPT-4, Anthropic Claude, Vercel AI SDK v5, agentic orchestration (MCP
-            servers, LangChain, parallel tool-calling), prompt engineering, LLM evaluation, English-to-SQL, streaming
-            inference.
+            RAG (pgvector, embeddings, vector search), LLM integration (OpenAI GPT-4, Anthropic Claude, Vercel AI SDK
+            v5), agentic orchestration (MCP servers, LangChain, parallel tool-calling), prompt engineering, LLM
+            evaluation and quality gates, English-to-SQL, streaming inference.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Multi-Agent Systems",
+        description: (
+          <>
+            Multi-model pipelines (MiniMax M2.7, Gemini 3.1 Pro, Claude 4.5 Opus, Groq Compound + Llama 70B,
+            Tavily), cost-optimized model allocation, 3-tier failover, concurrent processing with config-driven
+            routing, JSONL checkpointing, function/tool-calling, 8-tool agent registry.
           </>
         ),
         images: [],
@@ -367,18 +402,28 @@ const about = {
         title: "ML / Computer Vision",
         description: (
           <>
-            PyTorch, TensorFlow/Keras, MobileNet, EfficientNet, SwinTransformer, DINOv2, model compression, FiftyOne,
-            MLflow, scikit-learn, OpenCV.
+            PyTorch, TensorFlow/Keras, scikit-learn, PyCaret, OpenCV, MobileNet, EfficientNet, SwinTransformer,
+            DINOv2, model compression, human-in-the-loop labeling, FiftyOne (Voxel51), MLflow.
           </>
         ),
         images: [],
       },
       {
-        title: "Infrastructure & Data",
+        title: "Data & Infrastructure",
         description: (
           <>
-            GPU clusters (A10/g5), Databricks (Delta Lake, Unity Catalog), PostgreSQL (Neon — pgvector, RLS, JSONB),
-            Docker, CI/CD (GitHub Actions), AWS, Vercel.
+            GPU inference (A10/g5 clusters), ETL architecture, Delta Lake, schema governance, Docker, CI/CD (GitHub
+            Actions), AWS (Databricks), Vercel, REST API design (FastAPI, Next.js API routes).
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Databases",
+        description: (
+          <>
+            PostgreSQL (Neon — pgvector, RLS, triggers, JSONB), Databricks (Delta Lake, Unity Catalog), schema design,
+            migrations, query optimization.
           </>
         ),
         images: [],
@@ -386,11 +431,6 @@ const about = {
       {
         title: "Languages",
         description: <>Python, TypeScript/JavaScript, SQL, Bash.</>,
-        images: [],
-      },
-      {
-        title: "Web / Product",
-        description: <>Next.js 15, React 19, Tailwind CSS, shadcn/ui, Stripe, FastAPI.</>,
         images: [],
       },
     ],

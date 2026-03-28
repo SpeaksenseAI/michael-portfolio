@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPosts } from "@/app/utils/utils";
-import { Meta, Schema, AvatarGroup, Button, Carousel, Column, Flex, Heading, Tag, Text } from "@once-ui-system/core";
+import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Tag, Text } from "@once-ui-system/core";
+import { AutoCarousel } from "@/components/work/AutoCarousel";
 import { baseURL, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
@@ -84,12 +85,23 @@ export default async function Project({
             ))}
           </Flex>
         )}
+        {post.metadata.samplePdf && (
+          <Button
+            href={post.metadata.samplePdf}
+            target="_blank"
+            variant="secondary"
+            size="m"
+            prefixIcon="document"
+          >
+            View Sample Deliverable (PDF)
+          </Button>
+        )}
       </Column>
       {post.metadata.images?.length > 0 && (
         <Column fillWidth maxWidth="m">
-          <Carousel
+          <AutoCarousel
             aspectRatio="16 / 9"
-            indicator={post.metadata.images.length > 1 ? "line" : undefined}
+            interval={3500}
             items={post.metadata.images.map((src: string, i: number) => ({
               slide: src,
               alt: `${post.metadata.title} — image ${i + 1}`,

@@ -23,6 +23,7 @@ type Metadata = {
   tags?: string[];
   team: Team[];
   link?: string;
+  samplePdf?: string;
 };
 
 import { notFound } from 'next/navigation';
@@ -55,6 +56,7 @@ function readMDXFile(filePath: string) {
     tags: Array.isArray(data.tags) ? data.tags : [],
     team: data.team || [],
     link: data.link || "",
+    samplePdf: data.samplePdf || "",
   };
 
   return { metadata, content };
