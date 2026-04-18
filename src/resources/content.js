@@ -246,43 +246,57 @@ const about = {
       {
         company: "Klarix",
         timeframe: "2026 – Present",
-        role: "Founder & AI Pipeline Engineer",
+        role: "Founder & Full-Stack AI Engineer",
         achievements: [
           <>
+            Shipped <a href="https://klarix.ai" target="_blank" rel="noreferrer">klarix.ai</a> solo — production B2B SaaS
+            across three engineering surfaces (marketing site, AI deliverable pipeline, outreach engine) with ~205 commits
+            over 3 months.
+          </>,
+          <>
+            Built 16-page Next.js 14 App Router marketing site scoring <strong>99/100 Mobile and 100/100 Desktop on
+            PageSpeed Insights</strong> — removed <code>framer-motion</code>, replaced with a 40-line IntersectionObserver
+            <code>FadeIn</code>, lazy-loaded GA/Clarity, and added immutable cache headers. LCP 5.0s → &lt;2s; TBT 1.4s → ~100ms.
+          </>,
+          <>
+            Orchestrated 8 JSON-LD schema types (Organization, WebSite, Service, OfferCatalog, FAQPage, BreadcrumbList,
+            Article, Offer) across nested App Router layouts; programmatic sitemap; 4 competitor comparison pages
+            targeting high-intent keywords.
+          </>,
+          <>
+            Wired a global click auto-tracker firing 11 GA4 conversion events without per-component instrumentation;
+            Google Consent Mode v2 with custom cookie banner; LinkedIn Insight Tag retargeting; route + global error
+            boundaries reporting to GA4.
+          </>,
+          <>
             Architected 4-phase DAG pipeline (Score → Research → Generate → Deliver) orchestrating 14+ Python scripts
-            with 3 parallel execution tracks — config-driven multi-client architecture via context.json and YAML configs.
+            across 3 parallel tracks — config-driven multi-client via <code>context.json</code> and YAML.
           </>,
           <>
-            Integrated 7 API providers with cost-optimized model allocation: MiniMax M2.7 (ICP scoring, contact ranking),
-            Gemini 3.1 Pro (research synthesis, SWOT, battle cards), Claude 4.5 Opus (outreach), Groq Compound + Llama
-            70B (dossier research), Tavily (deep web research), Apollo (contacts), OpenRouter (failover routing).
+            Integrated 7 API providers with cost-optimized model allocation: MiniMax M2.7 (ICP scoring), Gemini 3.1 Pro
+            (research synthesis, SWOT, battle cards), Claude 4.5 Opus (outreach), Groq Compound + Llama 70B (dossier
+            research), Tavily (deep web), Apollo (contacts), OpenRouter (failover). 3-tier failover, per-API rate
+            limiting (450–950 RPM), ThreadPoolExecutor (5–50 workers), crash-safe JSONL append-under-lock.
           </>,
           <>
-            Enforced structured JSON outputs across all stages — schema-driven prompts with multi-tier parse fallback
-            (direct → code block extraction → trailing comma repair → regex). Gemini native JSON mode for guaranteed
-            structured output.
+            Generated 7 AI-synthesized deliverable types per prospect (dossiers, SWOT, battle cards, one-pagers, outreach
+            sequences, market overviews, event triggers) — ~400 artifacts per 100-company engagement, bundled into
+            branded PDFs (Playwright + PyMuPDF) after an AI quality-gate review pass.
           </>,
           <>
-            Engineered multi-tier failover (MiniMax → OpenRouter → Groq), per-API rate limiting (450–950 RPM),
-            ThreadPoolExecutor parallelism (5–50 workers), and crash-safe incremental JSONL processing with
-            append-under-lock.
+            Built 1,240-contact outreach engine across 432 companies: Apollo enrichment, role-archetype classification
+            (champion / economic-buyer / influencer / gatekeeper / practitioner), 51-column per-contact personalization
+            (email + 3 follow-ups + voicemail + LinkedIn DM), AI humanness audit. Result: 618 sendable-today contacts.
           </>,
           <>
-            Implemented incremental result caching and lead deduplication (domain normalization + email dedup) — reducing
-            API costs 60–80% for repeat client pipelines.
-          </>,
-          <>
-            Generated 7 AI-synthesized deliverable types per prospect: dossiers, SWOT, battle cards, one-pagers,
-            outreach sequences, market overviews, event triggers — branded PDF bundling (Playwright) + merge (PyMuPDF).
-          </>,
-          <>
-            AI quality gate with automated review scoring before client handoff — 17,700+ companies and 6,300+ contacts
-            scored; 78% verified email rate; full pipeline in under 3 hours (was weeks).
+            Impact: 17,700+ companies scored, 6,300+ contacts enriched per run at ~78% verified email rate; end-to-end
+            pipeline in under 3 hours (was weeks).
           </>,
           <>
             <em>
-              Stack: Python, MiniMax M2.7, Gemini 3.1 Pro, Claude 4.5 Opus, Groq Compound + Llama 70B, Tavily, Apollo
-              API, OpenRouter, Playwright, PyMuPDF
+              Stack: Next.js 14, TypeScript, Tailwind, shadcn/ui, Vercel, Python 3.12, MiniMax M2.7, Gemini 3.1 Pro,
+              Claude 4.5 Opus, Groq + Llama 70B, Tavily, Apollo, OpenRouter, Neon Postgres, Playwright, PyMuPDF, GA4,
+              Google Consent Mode v2
             </em>
           </>,
         ],

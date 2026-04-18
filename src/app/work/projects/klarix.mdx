@@ -1,15 +1,18 @@
 ---
-title: "Klarix — Multi-Model Agentic Research Pipeline"
-publishedAt: "2026-03-27"
+title: "Klarix — Competitive Intelligence as a Service"
+publishedAt: "2026-04-17"
 category: "Product"
-status: "Done"
+status: "In production"
+link: "https://klarix.ai"
 tags:
+  - "Next.js 14"
+  - "TypeScript"
   - "Agentic AI — LLMs"
   - "Python"
-  - "Multi-model routing"
+  - "SEO & Perf"
   - "LLM Orchestration"
-summary: "Config-driven agentic pipeline orchestrating 6 LLM providers with cost-aware routing, 3-tier failover, and crash-safe checkpointing. Scored 17,700+ companies and 6,300+ contacts in under 3 hours. Powers Klarix's competitive intelligence deliverables — dossiers, SWOT, battlecards, and outreach sequences."
-samplePdf: "/sample-saas.pdf"
+summary: "Production B2B SaaS shipped solo: klarix.ai marketing site scoring 99/100 Mobile PageSpeed, a multi-provider AI deliverable pipeline (Claude + Gemini + Groq + MiniMax) producing ~400 artifacts per 100-company engagement, and a 1,240-contact outreach engine with per-contact personalization. ~205 commits in 3 months."
+samplePdf: "/samples/sample-saas.pdf"
 images:
   - "/images/projects/klarix/img1.png"
   - "/images/projects/klarix/img2.png"
@@ -23,58 +26,94 @@ team:
 
 ## What Klarix Does
 
-Klarix delivers competitive intelligence as a service — per-company prospect dossiers, SWOT analyses, battlecards, and personalized outreach sequences for B2B sales and recruiting teams. Each engagement produces 100–400 research artifacts across 25–100 companies, delivered in 3–7 days.
+Done-for-you competitive intelligence for B2B SaaS, recruiting, FinTech, VC, and agencies. Prospect dossiers, SWOT analyses, battle cards, one-pagers, outreach sequences, and market overviews delivered in 3–7 days — no platform to learn, no analyst to hire.
 
-The pipeline is the product. Manual delivery at this depth and volume isn't possible without agentic automation.
+Live at [klarix.ai](https://klarix.ai). Built solo across three distinct engineering surfaces.
 
-## Pipeline Architecture
+## 1 · Marketing site — `klarix.ai`
 
-The core challenge: each research stage has different latency, cost, and quality tradeoffs. A single model can't handle all of them efficiently.
+Next.js 14 App Router site engineered end-to-end for SEO, conversion, and Core Web Vitals.
 
-Six providers are assigned by stage:
+- **99/100 Mobile PageSpeed, 100/100 Desktop.** Shipped a performance pass that removed `framer-motion` entirely, replaced it with a 40-line `IntersectionObserver`-based `FadeIn`, lazy-loaded GA/Clarity, and added immutable cache headers. **LCP dropped from 5.0s → under 2s; TBT from 1,400ms → ~100ms.**
+- **SEO foundation.** Programmatic sitemap and 8 JSON-LD schema types (Organization, WebSite, Service, OfferCatalog, FAQPage, BreadcrumbList, Article, Offer) composed across nested App Router layouts — so "CI for SaaS" and "CI for recruiting" rank as distinct entities.
+- **Conversion infrastructure.** Global click auto-tracker fires 11 GA4 events across every CTA without per-component instrumentation. Google Consent Mode v2 with cookie banner. LinkedIn Insight Tag for retargeting. Exit-intent modal on high-intent pages. Route + global error boundaries reporting to GA4.
+- **16 pages** including 4 competitor comparison pages (vs Klue, Crayon, Apollo, ZoomInfo, Aqute), 2 industry pillars, service pillar, pricing, samples, blog, and a polished 404 with a popular-pages grid. First Load JS: 88.2 kB.
 
-| Stage | Model | Reason |
-|-------|-------|--------|
-| ICP scoring | MiniMax M2.7 Highspeed | Low cost, high throughput at 950 RPM |
+## 2 · Deliverable pipeline — Python + multi-provider AI
+
+A config-driven agentic pipeline that turns a company list into six sales-ready artifacts per prospect. Each research stage has different cost, latency, and quality tradeoffs — a single model can't handle all of them efficiently, so providers are assigned by stage.
+
+| Stage | Provider | Reason |
+|-------|----------|--------|
+| ICP scoring | MiniMax M2.7 Highspeed | Low cost, 950 RPM throughput |
 | Research synthesis | Gemini 3.1 Pro | Long context, multi-source summarization |
-| Outreach copy | Claude 4.5 Opus | Highest output quality for written deliverables |
-| Contact collection | Groq Compound + Llama 70B | Sub-second latency for structured extraction |
+| Outreach copy | Claude 4.5 Opus | Highest written-deliverable quality |
+| Contact collection | Groq Compound + Llama 70B | Sub-second structured extraction |
 | Deep research | Tavily | Real-time web retrieval |
-| Contact data | Apollo API | Verified email + firmographic enrichment |
+| Contact enrichment | Apollo API | Verified email + firmographics |
 
-Cost-aware routing allocates the cheapest model that clears quality thresholds per stage — not the best model uniformly.
+**Reliability at 128 concurrent threads:**
 
-## Reliability Engineering
+- **3-tier failover** (MiniMax → OpenRouter → Groq), activating automatically on rate-limit or API error.
+- **Append-under-lock JSONL checkpointing** — every completed record flushes to disk; crashed runs resume from the last checkpoint, not from scratch.
+- **Per-provider rate-limit budgets** enforced at the thread-pool level, preventing cascading failures when one provider degrades.
 
-At 128 concurrent threads and 450–950 RPM across providers, partial failures are expected. Three systems prevent data loss:
+**Six deliverables per company** (~400 artifacts for a 100-company engagement): prospect dossiers, SWOT analyses, competitor battle cards, executive one-pagers, outreach sequences (email + LinkedIn + voicemail), and pricing intelligence.
 
-- **3-tier failover**: MiniMax → OpenRouter → Groq. Each tier activates automatically on rate-limit or API error, with no manual intervention.
-- **Append-under-lock JSONL checkpointing**: Every completed record is flushed to disk immediately. A crashed run resumes from the last checkpoint — not from scratch.
-- **Rate limit management**: Per-provider token budgets enforced at the thread pool level, preventing cascading failures when one provider degrades.
+### Sample deliverables
 
-## Output Quality
+Every artifact below is real pipeline output — branded PDFs exported from actual client runs.
 
-Each run produces structured, source-cited deliverables per company:
+| Deliverable | What's inside | Download |
+|---|---|---|
+| **Prospect dossier** | Company overview, evidence-based pain points, buying triggers, decision-maker map, personalized hooks | [sample-dossier.pdf](/samples/sample-dossier.pdf) |
+| **Competitor battle card** | Talk tracks, landmines, differentiation angles, key contacts at competitor | [sample-battlecard.pdf](/samples/sample-battlecard.pdf) |
+| **SWOT analysis** | Strengths / weaknesses / opportunities / threats with competitive context | [sample-swot.pdf](/samples/sample-swot.pdf) |
+| **Outreach sequence** | LinkedIn + email + voicemail, 3-touch cadence, objection handling | [sample-outreach.pdf](/samples/sample-outreach.pdf) |
+| **Market overview** | Competitive landscape map, category leaders, positioning quadrant | [sample-market-overview.pdf](/samples/sample-market-overview.pdf) |
+| **Deep research brief** | Multi-source synthesis with citations across news, filings, blogs, reviews | [sample-deep-research.pdf](/samples/sample-deep-research.pdf) |
 
-- **Prospect dossier**: Company overview, evidence-based pain points, buying triggers, decision-maker map with contact scores, personalized outreach hooks
-- **SWOT analysis**: Strengths, weaknesses, opportunities, threats with competitive context
-- **Battlecard**: Talk tracks, landmines, key contacts at competitors
-- **Outreach sequence**: LinkedIn + email, 3-touch cadence, objection handling, voicemail script
-- **Executive one-pager**: Compressed summary for leadership review
+Full vertical-specific bundles: [SaaS](/samples/sample-saas.pdf) · [FinTech](/samples/sample-fintech.pdf) · [Recruitment](/samples/sample-recruitment.pdf).
 
-[View a full sample deliverable (SaaS vertical, PDF)](/sample-saas.pdf) — prospect dossier on Bardeen: 7/10 ICP score, two co-founder contacts, full outreach sequence with CASA Tier 2/3 and PLG-to-enterprise positioning as the hook.
+## 3 · Outreach engine — 1,240-contact personalization at scale
 
-## Impact
+End-to-end contact-to-campaign pipeline built on top of the deliverable output.
+
+- **Apollo enrichment:** 432 companies → 1,240 decision-maker contacts, enriched with funding, headcount, tenure, and tech stack.
+- **Role-archetype classification:** each contact tagged `champion`, `economic_buyer`, `influencer`, `gatekeeper`, or `practitioner` with a 1–9 fit score.
+- **Per-contact personalization:** 51-column enriched record including LinkedIn connection message, email subject + body, 3 follow-ups, voicemail script, and LinkedIn DM draft — each generated from company-specific sales intel (funding events, achievements, surprise facts, CI angle) pulled per row.
+- **Humanness review pass:** AI-driven tone and spam-filter audit before send.
+- **Result: 618 sendable-today contacts** (fit ≥ 7, has email, buyer / champion / influencer) across 323 companies, queued for Instantly upload.
+
+## Quantified output
 
 | Metric | Value |
 |--------|-------|
-| Companies scored per run | 17,700+ |
-| Contacts enriched | 6,300+ |
+| Commits (last 3 months) | 205 |
+| Mobile PageSpeed Insights | 99 / 100 |
+| Desktop PageSpeed Insights | 100 / 100 |
+| LCP improvement | 5.0s → < 2s |
+| TBT improvement | 1,400ms → ~100ms |
+| Site pages (static-prerendered) | 16 |
+| First Load JS shared | 88.2 kB |
+| JSON-LD schema types | 8 |
+| GA4 conversion events (auto-tracked) | 11 |
+| Companies scored per pipeline run | 17,700+ |
+| Contacts enriched per pipeline run | 6,300+ |
 | Verified email rate | ~78% |
-| End-to-end runtime | < 3 hours |
-| Concurrent threads | 128 |
-| LLM providers orchestrated | 6 |
+| End-to-end pipeline runtime | < 3 hours |
+| Contacts in outreach engine | 1,240 across 432 companies |
+| Deliverables per 100-company engagement | ~400 artifacts |
+
+## Selected engineering highlights
+
+- **Removed `framer-motion` programmatically** across 8 files via a 120-line PowerShell refactor with balanced-brace AST-aware const-declaration stripping — eliminated ~50 kB bundle and cut TBT by 93%.
+- **Google Consent Mode v2** with `beforeInteractive` default-deny, `localStorage`-backed consent state, a `CustomEvent`-based consent bus, and granular script gating per vendor — GA4 and Clarity load only after opt-in, with zero cold-start flicker.
+- **Global click auto-tracker** hooks `document` in the capture phase, inspects `href` and `data-*` attributes at bubble time, and routes 11 distinct GA4 events — obviating per-component instrumentation while still discriminating pricing / compare / sample / service intents.
+- **Per-route schema orchestration** via nested App Router layouts — each pillar page's `layout.tsx` composes breadcrumb JSON-LD with its own Service / Article schema while the root layout emits cross-site Organization / FAQPage.
 
 ## Stack
 
-Python · MiniMax M2.7 · Gemini 3.1 Pro · Claude 4.5 Opus · Groq Compound + Llama 70B · Tavily · Apollo API · Playwright · PyMuPDF
+**Frontend:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS · shadcn/ui · Vercel · Vercel Analytics + Speed Insights 
+**Pipeline:** Python 3.12 · Claude 4.5 Opus · Gemini 3.1 Pro · Groq Compound + Llama 70B · MiniMax M2.7 · Tavily · Apollo.io · Phantombuster · OpenRouter · Playwright · PyMuPDF · Instantly API 
+**Data & infra:** Neon PostgreSQL · GitHub Actions · Google Search Console · GA4 · Microsoft Clarity · LinkedIn Insight Tag · Google Consent Mode v2 · pnpm
