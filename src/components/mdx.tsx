@@ -75,9 +75,21 @@ function slugify(str: string): string {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
+/** MDX headings can be React nodes (e.g. inline code), not plain strings. */
+function nodeToPlainString(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(nodeToPlainString).join("");
+  if (React.isValidElement(node)) {
+    const props = node.props as { children?: ReactNode };
+    return nodeToPlainString(props?.children);
+  }
+  return "";
+}
+
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   const CustomHeading = ({ children, ...props }: Omit<React.ComponentProps<typeof HeadingLink>, 'as' | 'id'>) => {
-    const slug = slugify(children as string);
+    const slug = slugify(nodeToPlainString(children));
     return (
       <HeadingLink
         marginTop="24"
