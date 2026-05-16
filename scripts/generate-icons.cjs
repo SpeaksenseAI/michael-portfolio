@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const root = path.resolve(__dirname, '..');
-const src = path.join(root, 'public/images/mbaylard.jpeg');
+const src = path.join(root, 'public/images/mbaylard.png');
 const appDir = path.join(root, 'src/app');
 
 const EXTRACT = { left: 132, top: 20, width: 760, height: 760 };
