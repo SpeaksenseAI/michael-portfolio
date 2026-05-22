@@ -8,7 +8,7 @@ A professional portfolio showcasing data science, machine learning, and analytic
 
 Data Scientist with a B.S. in Computer Science from Bradley University. Specializing in machine learning, data engineering, and analytics to create scalable solutions that drive business results and optimize complex systems.
 
-**Contact:** [LinkedIn](https://www.linkedin.com/in/michaelbaylard) | [Resume](/Michael%20Baylard%20-%20Resume.pdf)
+**Contact:** [LinkedIn](https://www.linkedin.com/in/michaelbaylard) | [Resume](/resume_ai_engineer.pdf)
 
 ## **Featured Work**
 
