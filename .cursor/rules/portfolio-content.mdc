@@ -1,0 +1,39 @@
+---
+description: Portfolio content — MDX projects, content.js, components, public assets
+globs: "src/**,public/**"
+alwaysApply: false
+---
+
+# Portfolio Content
+
+## Project pages
+
+- MDX lives in `src/app/work/projects/<slug>.mdx`
+- Slug must match filename; routing via `src/app/work/[slug]/page.tsx`
+- New project: add MDX + entry in `src/resources/content.js` if it appears on home/work index
+
+## content.js
+
+- Central copy for hero, about snippets, featured project list
+- Edit here first when copy spans multiple routes
+- Do not duplicate long paragraphs across MDX and content.js
+
+## Components
+
+- Colocate SCSS modules (`*.module.scss`) with components
+- Prefer extending Once UI primitives over one-off inline styles
+- `"use client"` only for hooks, browser APIs, or interactivity
+
+## Public assets
+
+- Resume: `public/resume_ai_engineer.pdf` — update PDF + links together
+- Trademarks/icons: `public/trademarks/`
+- Regenerate icons via `node scripts/generate-icons.cjs` when branding changes
+
+## Quality check
+
+```bash
+pnpm lint
+```
+
+Verify project card renders on `/work` and slug page loads after MDX changes.

@@ -1,0 +1,37 @@
+---
+description: Michael portfolio — site identity, stack, and entry points. Always loaded.
+alwaysApply: true
+---
+
+# Michael Portfolio — Core Context
+
+> _Last updated: 2026-05-29_
+
+**Public portfolio** for Michael Baylard — data science / AI engineering narrative. Next.js App Router + Once UI + MDX project pages.
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | Next.js App Router (`src/app/`) |
+| UI | Once UI + SCSS modules |
+| Content | `src/resources/content.js` + MDX under `src/app/work/projects/` |
+| Package manager | pnpm |
+| Deploy | Vercel (see README) |
+
+## Not in scope here
+
+- Speaksense App (`speaksense_app`) — different repo, different auth/DB
+- Klarix pipeline / client portal — see `~/GitHub/klarix`
+- Research hub HTML docs — see `~/GitHub/research`
+- Personal life-ops markdown — see `~/GitHub/personal`
+
+## Before editing
+
+1. Read `AGENTS.md` for path map
+2. Check `src/resources/content.js` for copy that feeds multiple pages
+3. Keep metrics consistent with resume PDF and existing MDX
+
+## Voice
+
+Professional, concrete, metric-backed. No hype adjectives without a number attached. Third person or first person OK in MDX; match surrounding project tone.

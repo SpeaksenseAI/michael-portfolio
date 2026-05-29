@@ -1,0 +1,19 @@
+---
+description: Model routing for portfolio site work — UI, content, and light scripting.
+alwaysApply: true
+---
+
+# Model Routing — Michael Portfolio
+
+| Task | Use | Why |
+|---|---|---|
+| React/Next UI edits | composer-2.5-fast or claude-sonnet-4-6 | Fast iteration, low hallucination on TSX |
+| MDX copy / project narratives | claude-sonnet-4-6 | Factual tone; no inflated metrics |
+| Multi-file refactor | claude-opus-4-7 | Architecture + cross-file consistency |
+| Terminal / build scripts | gpt-5-5 | Strong CLI automation |
+
+## Hard rules
+
+- Do not invent project metrics — verify against existing MDX or resume
+- Do not pull in Speaksense App or Klarix pipeline patterns for this site
+- GPT-5.5 for long-form portfolio copy only with explicit user request; prefer Claude for bios
